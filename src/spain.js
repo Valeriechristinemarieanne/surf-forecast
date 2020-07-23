@@ -16,9 +16,9 @@ export default function spain() {
                     will always be an uncrowded spot if you are prepared to
                     look.
                 </p>
-                <Link to="/allCountries/spain/surfspot">surfspot 1</Link>
-                <Link to="/allCountries/spain/surfspot">surfspot 2</Link>
-                <Link to="/allCountries/spain/surfspot">surfspot 3</Link>
+                <Link to="/allCountries/spain/deba">Deba</Link>
+                <Link to="/allCountries/spain/zarautz">Zarautz</Link>
+                <Link to="/allCountries/spain/zurriola">Zurriola</Link>
             </div>
         </div>
     );

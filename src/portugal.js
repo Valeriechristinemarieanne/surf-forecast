@@ -16,9 +16,9 @@ export default function portugal() {
                     architecture dates to the 1500s–1800s, when Portugal had a
                     powerful maritime empire.
                 </p>
-                <Link to="/allCountries/portugal/surfspot">Surfspot 1</Link>
-                <Link to="/allCountries/portugal/surfspot">Surfspot 2</Link>
-                <Link to="/allCountries/portugal/surfspot">Surfspot 3</Link>
+                <Link to="/allCountries/portugal/supertubos">Supertubos</Link>
+                <Link to="/allCountries/portugal/lagida">Lagida</Link>
+                <Link to="/allCountries/portugal/verro">Cerro</Link>
             </div>
         </div>
     );

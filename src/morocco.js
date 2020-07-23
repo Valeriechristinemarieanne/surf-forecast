@@ -14,9 +14,9 @@ export default function morocco() {
                     delivers her most tasty waves during fall, winter and
                     spring. The land of the right-hand point break.
                 </p>
-                <Link to="/allCountries/morocco/surfspot">surfspot 1</Link>
-                <Link to="/allCountries/morocco/surfspot">surfspot 2</Link>
-                <Link to="/allCountries/morocco/surfspot">surfspot 3</Link>
+                <Link to="/allCountries/morocco/anchorpoint">Anchor Point</Link>
+                <Link to="/allCountries/morocco/imsouane">Imsouane</Link>
+                <Link to="/allCountries/morocco/devilsrock">Devils Rock</Link>
             </div>
         </div>
     );

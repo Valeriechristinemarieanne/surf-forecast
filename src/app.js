@@ -23,17 +23,7 @@ export default function App() {
                 />
                 <Route
                     exact
-                    path="/allCountries/morocco/surfspot"
-                    component={Surfspot}
-                />
-                <Route
-                    exact
-                    path="/allCountries/spain/surfspot"
-                    component={Surfspot}
-                />
-                <Route
-                    exact
-                    path="/allCountries/portugal/surfspot"
+                    path="/allCountries/:country/:surfspot"
                     component={Surfspot}
                 />
             </BrowserRouter>
