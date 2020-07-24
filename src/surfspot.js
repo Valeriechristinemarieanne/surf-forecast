@@ -1,46 +1,78 @@
 import React, { useEffect, useState, useReducer } from "react";
 import axios from "axios";
 import { API_KEY } from "../secrets.json";
-import { SecretsManager } from "aws-sdk";
+
 const reducer = (state, action) => {
-    if (action.type == "SURF_MORNINGUPDATE") {
+    if (action.type == "SURF_UPDATE") {
         return {
             ...state,
             dayOne: {
                 ...state.dayOne,
-                morningWaveHeight: action.waveHeight,
-                morningAirTemperature: action.airTemperature,
-                morningWaterTemperature: action.waterTemperature,
-                morningWavePeriod: action.wavePeriod,
-                morningWindSpeed: action.windSpeed,
+                morningWaveHeight: action.data.hours[6].waveHeight.noaa,
+                morningAirTemperature: action.data.hours[6].airTemperature.noaa,
+                morningWaterTemperature:
+                    action.data.hours[6].waterTemperature.noaa,
+                morningWavePeriod: action.data.hours[6].wavePeriod.noaa,
+                morningWindSpeed: action.data.hours[6].windSpeed.noaa,
+                lunchWaveHeight: action.data.hours[12].waveHeight.noaa,
+                lunchAirTemperature: action.data.hours[12].airTemperature.noaa,
+                lunchWaterTemperature:
+                    action.data.hours[12].waterTemperature.noaa,
+                lunchWavePeriod: action.data.hours[12].wavePeriod.noaa,
+                lunchWindSpeed: action.data.hours[12].windSpeed.noaa,
+                eveningWaveHeight: action.data.hours[18].waveHeight.noaa,
+                eveningAirTemperature:
+                    action.data.hours[18].airTemperature.noaa,
+                eveningWaterTemperature:
+                    action.data.hours[18].waterTemperature.noaa,
+                eveningWavePeriod: action.data.hours[18].wavePeriod.noaa,
+                eveningWindSpeed: action.data.hours[18].windSpeed.noaa,
             },
-        };
-    }
-
-    if (action.type == "SURF_LUNCHUPDATE") {
-        return {
-            ...state,
-            dayOne: {
-                ...state.dayOne,
-                lunchWaveHeight: action.waveHeight,
-                lunchAirTemperature: action.airTemperature,
-                lunchWaterTemperature: action.waterTemperature,
-                lunchWavePeriod: action.wavePeriod,
-                lunchWindSpeed: action.windSpeed,
+            dayTwo: {
+                ...state.dayTwo,
+                morningWaveHeight: action.data.hours[30].waveHeight.noaa,
+                morningAirTemperature:
+                    action.data.hours[30].airTemperature.noaa,
+                morningWaterTemperature:
+                    action.data.hours[30].waterTemperature.noaa,
+                morningWavePeriod: action.data.hours[30].wavePeriod.noaa,
+                morningWindSpeed: action.data.hours[30].windSpeed.noaa,
+                lunchWaveHeight: action.data.hours[6].waveHeight.noaa,
+                lunchAirTemperature: action.data.hours[36].airTemperature.noaa,
+                lunchWaterTemperature:
+                    action.data.hours[36].waterTemperature.noaa,
+                lunchWavePeriod: action.data.hours[36].wavePeriod.noaa,
+                lunchWindSpeed: action.data.hours[36].windSpeed.noaa,
+                eveningWaveHeight: action.data.hours[42].waveHeight.noaa,
+                eveningAirTemperature:
+                    action.data.hours[42].airTemperature.noaa,
+                eveningWaterTemperature:
+                    action.data.hours[42].waterTemperature.noaa,
+                eveningWavePeriod: action.data.hours[42].wavePeriod.noaa,
+                eveningWindSpeed: action.data.hours[42].windSpeed.noaa,
             },
-        };
-    }
-
-    if (action.type == "SURF_EVENINGUPDATE") {
-        return {
-            ...state,
-            dayOne: {
-                ...state.dayOne,
-                eveningWaveHeight: action.waveHeight,
-                eveningAirTemperature: action.airTemperature,
-                eveningWaterTemperature: action.waterTemperature,
-                eveningWavePeriod: action.wavePeriod,
-                eveningWindSpeed: action.windSpeed,
+            dayThree: {
+                ...state.dayThree,
+                morningWaveHeight: action.data.hours[54].waveHeight.noaa,
+                morningAirTemperature:
+                    action.data.hours[54].airTemperature.noaa,
+                morningWaterTemperature:
+                    action.data.hours[54].waterTemperature.noaa,
+                morningWavePeriod: action.data.hours[54].wavePeriod.noaa,
+                morningWindSpeed: action.data.hours[54].windSpeed.noaa,
+                lunchWaveHeight: action.data.hours[60].waveHeight.noaa,
+                lunchAirTemperature: action.data.hours[60].airTemperature.noaa,
+                lunchWaterTemperature:
+                    action.data.hours[60].waterTemperature.noaa,
+                lunchWavePeriod: action.data.hours[60].wavePeriod.noaa,
+                lunchWindSpeed: action.data.hours[60].windSpeed.noaa,
+                eveningWaveHeight: action.data.hours[66].waveHeight.noaa,
+                eveningAirTemperature:
+                    action.data.hours[66].airTemperature.noaa,
+                eveningWaterTemperature:
+                    action.data.hours[66].waterTemperature.noaa,
+                eveningWavePeriod: action.data.hours[66].wavePeriod.noaa,
+                eveningWindSpeed: action.data.hours[66].windSpeed.noaa,
             },
         };
     }
@@ -153,34 +185,8 @@ export default function Surfspot(props) {
                         setMorningWaveHeight(jsonData.hours[6].waveHeight.noaa); */
 
                         dispatchSurfState({
-                            type: "SURF_MORNINGUPDATE",
-                            waveHeight: jsonData.hours[6].waveHeight.noaa,
-                            airTemperature:
-                                jsonData.hours[6].airTemperature.noaa,
-                            waterTemperature:
-                                jsonData.hours[6].waterTemperature.noaa,
-                            wavePeriod: jsonData.hours[6].wavePeriod.noaa,
-                            windSpeed: jsonData.hours[6].windSpeed.noaa,
-                        });
-                        dispatchSurfState({
-                            type: "SURF_LUNCHUPDATE",
-                            waveHeight: jsonData.hours[12].waveHeight.noaa,
-                            airTemperature:
-                                jsonData.hours[12].airTemperature.noaa,
-                            waterTemperature:
-                                jsonData.hours[12].waterTemperature.noaa,
-                            wavePeriod: jsonData.hours[12].wavePeriod.noaa,
-                            windSpeed: jsonData.hours[12].windSpeed.noaa,
-                        });
-                        dispatchSurfState({
-                            type: "SURF_EVENINGUPDATE",
-                            waveHeight: jsonData.hours[18].waveHeight.noaa,
-                            airTemperature:
-                                jsonData.hours[18].airTemperature.noaa,
-                            waterTemperature:
-                                jsonData.hours[18].waterTemperature.noaa,
-                            wavePeriod: jsonData.hours[18].wavePeriod.noaa,
-                            windSpeed: jsonData.hours[18].windSpeed.noaa,
+                            type: "SURF_UPDATE",
+                            data: jsonData,
                         });
                     });
             })
@@ -193,6 +199,8 @@ export default function Surfspot(props) {
         <div>
             <h2>{surfspot} </h2>
             <p>{description} </p>
+            <h4>Today!</h4>
+            <h4>Your morning session</h4>
             <p>
                 The air temperature at 6 am is{" "}
                 {surfState.dayOne.morningAirTemperature}°C
@@ -211,6 +219,180 @@ export default function Surfspot(props) {
             </p>
             <p>
                 The wind speed at 6 am is {surfState.dayOne.morningWindSpeed}{" "}
+                kmh
+            </p>
+
+            <h4>Your lunch session</h4>
+            <p>
+                The air temperature at 6 am is{" "}
+                {surfState.dayOne.lunchAirTemperature}°C
+            </p>
+            <p>
+                The water temperature at 6 am is{" "}
+                {surfState.dayOne.lunchWaterTemperature}°C{" "}
+            </p>
+            <p>
+                Wave Height at 6 am is {surfState.dayOne.lunchWaveHeight} meters
+            </p>
+            <p>
+                The wave period at 6 am is {surfState.dayOne.lunchWavePeriod}{" "}
+                mps
+            </p>
+            <p>
+                The wind speed at 6 am is {surfState.dayOne.lunchWindSpeed} kmh
+            </p>
+
+            <h4>Your evening session</h4>
+            <p>
+                The air temperature at 6 am is{" "}
+                {surfState.dayOne.eveningAirTemperature}°C
+            </p>
+            <p>
+                The water temperature at 6 am is{" "}
+                {surfState.dayOne.eveningWaterTemperature}°C{" "}
+            </p>
+            <p>
+                Wave Height at 6 am is {surfState.dayOne.eveningWaveHeight}{" "}
+                meters
+            </p>
+            <p>
+                The wave period at 6 am is {surfState.dayOne.eveningWavePeriod}{" "}
+                mps
+            </p>
+            <p>
+                The wind speed at 6 am is {surfState.dayOne.eveningWindSpeed}{" "}
+                kmh
+            </p>
+
+            <h4>Tomorrow!</h4>
+            <h4>Your morning session</h4>
+            <p>
+                The air temperature at 6 am is{" "}
+                {surfState.dayTwo.morningAirTemperature}°C
+            </p>
+            <p>
+                The water temperature at 6 am is{" "}
+                {surfState.dayTwo.morningWaterTemperature}°C{" "}
+            </p>
+            <p>
+                Wave Height at 6 am is {surfState.dayTwo.morningWaveHeight}{" "}
+                meters
+            </p>
+            <p>
+                The wave period at 6 am is {surfState.dayTwo.morningWavePeriod}{" "}
+                mps
+            </p>
+            <p>
+                The wind speed at 6 am is {surfState.dayTwo.morningWindSpeed}{" "}
+                kmh
+            </p>
+
+            <h4>Your lunch session</h4>
+            <p>
+                The air temperature at 6 am is{" "}
+                {surfState.dayTwo.lunchAirTemperature}°C
+            </p>
+            <p>
+                The water temperature at 6 am is{" "}
+                {surfState.dayTwo.lunchWaterTemperature}°C{" "}
+            </p>
+            <p>
+                Wave Height at 6 am is {surfState.dayTwo.lunchWaveHeight} meters
+            </p>
+            <p>
+                The wave period at 6 am is {surfState.dayTwo.lunchWavePeriod}{" "}
+                mps
+            </p>
+            <p>
+                The wind speed at 6 am is {surfState.dayTwo.lunchWindSpeed} kmh
+            </p>
+
+            <h4>Your evening session</h4>
+            <p>
+                The air temperature at 6 am is{" "}
+                {surfState.dayTwo.eveningAirTemperature}°C
+            </p>
+            <p>
+                The water temperature at 6 am is{" "}
+                {surfState.dayTwo.eveningWaterTemperature}°C{" "}
+            </p>
+            <p>
+                Wave Height at 6 am is {surfState.dayTwo.eveningWaveHeight}{" "}
+                meters
+            </p>
+            <p>
+                The wave period at 6 am is {surfState.dayTwo.eveningWavePeriod}{" "}
+                mps
+            </p>
+            <p>
+                The wind speed at 6 am is {surfState.dayTwo.eveningWindSpeed}{" "}
+                kmh
+            </p>
+
+            <h4>Today!</h4>
+            <h4>Your morning session</h4>
+            <p>
+                The air temperature at 6 am is{" "}
+                {surfState.dayThree.morningAirTemperature}°C
+            </p>
+            <p>
+                The water temperature at 6 am is{" "}
+                {surfState.dayThree.morningWaterTemperature}°C{" "}
+            </p>
+            <p>
+                Wave Height at 6 am is {surfState.dayThree.morningWaveHeight}{" "}
+                meters
+            </p>
+            <p>
+                The wave period at 6 am is{" "}
+                {surfState.dayThree.morningWavePeriod} mps
+            </p>
+            <p>
+                The wind speed at 6 am is {surfState.dayThree.morningWindSpeed}{" "}
+                kmh
+            </p>
+
+            <h4>Your lunch session</h4>
+            <p>
+                The air temperature at 6 am is{" "}
+                {surfState.dayThree.lunchAirTemperature}°C
+            </p>
+            <p>
+                The water temperature at 6 am is{" "}
+                {surfState.dayThree.lunchWaterTemperature}°C{" "}
+            </p>
+            <p>
+                Wave Height at 6 am is {surfState.dayThree.lunchWaveHeight}{" "}
+                meters
+            </p>
+            <p>
+                The wave period at 6 am is {surfState.dayThree.lunchWavePeriod}{" "}
+                mps
+            </p>
+            <p>
+                The wind speed at 6 am is {surfState.dayThree.lunchWindSpeed}{" "}
+                kmh
+            </p>
+
+            <h4>Your evening session</h4>
+            <p>
+                The air temperature at 6 am is{" "}
+                {surfState.dayThree.eveningAirTemperature}°C
+            </p>
+            <p>
+                The water temperature at 6 am is{" "}
+                {surfState.dayThree.eveningWaterTemperature}°C{" "}
+            </p>
+            <p>
+                Wave Height at 6 am is {surfState.dayThree.eveningWaveHeight}{" "}
+                meters
+            </p>
+            <p>
+                The wave period at 6 am is{" "}
+                {surfState.dayThree.eveningWavePeriod} mps
+            </p>
+            <p>
+                The wind speed at 6 am is {surfState.dayThree.eveningWindSpeed}{" "}
                 kmh
             </p>
         </div>
