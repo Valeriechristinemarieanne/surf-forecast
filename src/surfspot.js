@@ -1,6 +1,29 @@
 import React, { useEffect, useState, useReducer } from "react";
 import axios from "axios";
 import { API_KEY } from "../secrets.json";
+import {
+    Typography,
+    Container,
+    Grid,
+    Card,
+    CardActionArea,
+    CardMedia,
+    CardContent,
+    makeStyles,
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableHead,
+    TableRow,
+    Paper,
+} from "@material-ui/core";
+
+const useStyles = makeStyles({
+    table: {
+        minWidth: 650,
+    },
+});
 
 const reducer = (state, action) => {
     if (action.type == "SURF_UPDATE") {
@@ -81,10 +104,9 @@ const reducer = (state, action) => {
 };
 
 export default function Surfspot(props) {
+    const classes = useStyles();
     const [surfspot, setSurfspot] = useState("");
     const [description, setDescription] = useState("");
-    /*  const [airTemperature, setMorningAirTemperature] = useState("");
-    const [waveHeight, setMorningWaveHeight] = useState(""); */
 
     const [surfState, dispatchSurfState] = useReducer(reducer, {
         dayOne: {
@@ -151,7 +173,7 @@ export default function Surfspot(props) {
                 setSurfspot(response.data.displayname);
                 setDescription(response.data.description);
 
-                const lat = response.data.lat;
+                /* const lat = response.data.lat;
                 const lng = response.data.lng;
                 const params =
                     "waveHeight,airTemperature,waterTemperature,wavePeriod,windSpeed";
@@ -179,16 +201,11 @@ export default function Surfspot(props) {
                             jsonData.hours[6].waveHeight.noaa
                         );
 
-                        /*  setMorningAirTemperature(
-                            jsonData.hours[6].airTemperature.noaa
-                        );
-                        setMorningWaveHeight(jsonData.hours[6].waveHeight.noaa); */
-
                         dispatchSurfState({
                             type: "SURF_UPDATE",
                             data: jsonData,
                         });
-                    });
+                    }); */
             })
             .catch((err) => {
                 console.log("error: ", err);
@@ -196,74 +213,99 @@ export default function Surfspot(props) {
     }, []);
 
     return (
-        <div>
-            <h2>{surfspot} </h2>
-            <p>{description} </p>
-            <h4>Today!</h4>
-            <h4>Your morning session</h4>
-            <p>
-                The air temperature at 6 am is{" "}
-                {surfState.dayOne.morningAirTemperature}°C
-            </p>
-            <p>
-                The water temperature at 6 am is{" "}
-                {surfState.dayOne.morningWaterTemperature}°C{" "}
-            </p>
-            <p>
-                Wave Height at 6 am is {surfState.dayOne.morningWaveHeight}{" "}
-                meters
-            </p>
-            <p>
-                The wave period at 6 am is {surfState.dayOne.morningWavePeriod}{" "}
-                mps
-            </p>
-            <p>
-                The wind speed at 6 am is {surfState.dayOne.morningWindSpeed}{" "}
-                kmh
-            </p>
+        <Container>
+            <Typography variant="h4">{surfspot}</Typography>
+            <Typography variant="subtitle1" component="p" className="subtitle">
+                {description}
+            </Typography>
 
-            <h4>Your lunch session</h4>
-            <p>
-                The air temperature at 6 am is{" "}
-                {surfState.dayOne.lunchAirTemperature}°C
-            </p>
-            <p>
-                The water temperature at 6 am is{" "}
-                {surfState.dayOne.lunchWaterTemperature}°C{" "}
-            </p>
-            <p>
-                Wave Height at 6 am is {surfState.dayOne.lunchWaveHeight} meters
-            </p>
-            <p>
-                The wave period at 6 am is {surfState.dayOne.lunchWavePeriod}{" "}
-                mps
-            </p>
-            <p>
-                The wind speed at 6 am is {surfState.dayOne.lunchWindSpeed} kmh
-            </p>
-
-            <h4>Your evening session</h4>
-            <p>
-                The air temperature at 6 am is{" "}
-                {surfState.dayOne.eveningAirTemperature}°C
-            </p>
-            <p>
-                The water temperature at 6 am is{" "}
-                {surfState.dayOne.eveningWaterTemperature}°C{" "}
-            </p>
-            <p>
-                Wave Height at 6 am is {surfState.dayOne.eveningWaveHeight}{" "}
-                meters
-            </p>
-            <p>
-                The wave period at 6 am is {surfState.dayOne.eveningWavePeriod}{" "}
-                mps
-            </p>
-            <p>
-                The wind speed at 6 am is {surfState.dayOne.eveningWindSpeed}{" "}
-                kmh
-            </p>
-
+            <TableContainer component={Paper}>
+                <Table className={classes.table} aria-label="caption table">
+                    <caption>Today's surf forecast</caption>
+                    <TableHead>
+                        <TableRow>
+                            <TableCell></TableCell>
+                            <TableCell align="right">Morning session</TableCell>
+                            <TableCell align="right">Lunch session</TableCell>
+                            <TableCell align="right">
+                                After work session
+                            </TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        <TableRow>
+                            <TableCell component="th" scope="row">
+                                ☀️
+                            </TableCell>
+                            <TableCell component="th" scope="row">
+                                {surfState.dayOne.morningAirTemperature}°C
+                            </TableCell>
+                            <TableCell component="th" scope="row">
+                                {surfState.dayOne.lunchAirTemperature}°C
+                            </TableCell>
+                            <TableCell component="th" scope="row">
+                                {surfState.dayOne.eveningAirTemperature}°C
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell component="th" scope="row">
+                                🌫️
+                            </TableCell>
+                            <TableCell component="th" scope="row">
+                                {surfState.dayOne.morningWaterTemperature}°C
+                            </TableCell>
+                            <TableCell component="th" scope="row">
+                                {surfState.dayOne.lunchWaterTemperature}°C
+                            </TableCell>
+                            <TableCell component="th" scope="row">
+                                {surfState.dayOne.eveningWaterTemperature}°C
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell component="th" scope="row">
+                                Wave Height
+                            </TableCell>
+                            <TableCell>
+                                {surfState.dayOne.morningWaveHeight}
+                            </TableCell>
+                            <TableCell>
+                                {surfState.dayOne.lunchWaveHeight}
+                            </TableCell>
+                            <TableCell>
+                                {surfState.dayOne.eveningWaveHeight}
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell component="th" scope="row">
+                                Wave Period
+                            </TableCell>
+                            <TableCell>
+                                {surfState.dayOne.morningWavePeriod}{" "}
+                            </TableCell>
+                            <TableCell>
+                                {surfState.dayOne.lunchWavePeriod}{" "}
+                            </TableCell>
+                            <TableCell>
+                                {surfState.dayOne.eveningWavePeriod}{" "}
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell component="th" scope="row">
+                                Wind Speed
+                            </TableCell>
+                            <TableCell>
+                                {surfState.dayOne.morningWindSpeed}
+                            </TableCell>
+                            <TableCell>
+                                {surfState.dayOne.lunchWindSpeed}{" "}
+                            </TableCell>
+                            <TableCell>
+                                {surfState.dayOne.eveningWindSpeed}{" "}
+                            </TableCell>
+                        </TableRow>
+                    </TableBody>
+                </Table>
+            </TableContainer>
             <h4>Tomorrow!</h4>
             <h4>Your morning session</h4>
             <p>
@@ -395,6 +437,6 @@ export default function Surfspot(props) {
                 The wind speed at 6 am is {surfState.dayThree.eveningWindSpeed}{" "}
                 kmh
             </p>
-        </div>
+        </Container>
     );
 }
