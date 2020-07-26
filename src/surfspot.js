@@ -17,6 +17,7 @@ import {
     TableHead,
     TableRow,
     Paper,
+    Image,
 } from "@material-ui/core";
 
 const useStyles = makeStyles({
@@ -107,6 +108,7 @@ export default function Surfspot(props) {
     const classes = useStyles();
     const [surfspot, setSurfspot] = useState("");
     const [description, setDescription] = useState("");
+    const [image, setImage] = useState("");
 
     const [surfState, dispatchSurfState] = useReducer(reducer, {
         dayOne: {
@@ -172,6 +174,7 @@ export default function Surfspot(props) {
             .then((response) => {
                 setSurfspot(response.data.displayname);
                 setDescription(response.data.description);
+                setImage(response.data.image);
 
                 /* const lat = response.data.lat;
                 const lng = response.data.lng;
@@ -218,6 +221,7 @@ export default function Surfspot(props) {
             <Typography variant="subtitle1" component="p" className="subtitle">
                 {description}
             </Typography>
+            <img src={image}></img>
 
             <TableContainer component={Paper} className="tablecontainer">
                 <Table>

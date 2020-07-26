@@ -38,6 +38,21 @@ app.get("/server/allCountries/:country/:surfspot", (req, res) => {
     res.json(selectedSurfspot);
 });
 
+app.get("/server/allCountries/:country", (req, res) => {
+    console.log("req.params:", req.params);
+    /* const { country } = req.params; */
+    const { country } = req.params;
+
+    const selectedCountry = surfspots.find((item) => {
+        console.log("item.country: ", item.country);
+        console.log("country: ", country);
+        return item.country.toLowerCase() == country.toLowerCase();
+    });
+
+    console.log("selectedCountry", selectedCountry);
+    res.json(selectedCountry);
+});
+
 app.get("*", function (req, res) {
     res.sendFile(__dirname + "/index.html");
 });

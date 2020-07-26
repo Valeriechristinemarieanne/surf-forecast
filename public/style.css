@@ -9,8 +9,7 @@ body {
 /* Welcome page */
 .maincontainer {
     background-color: white;
-    padding: 50px;
-    /* justify-content: center; */
+    padding-top: 30px;
 }
 
 h1 {
@@ -24,8 +23,8 @@ h1 {
 /* allCountries page */
 
 img {
-    height: 200px;
-    width: 450px;
+    height: 450px;
+    /*  width: 800px; */
     object-fit: cover;
 }
 
@@ -46,4 +45,8 @@ h4 {
 .tablecontainer {
     padding-left: 20px;
     margin-bottom: 30px;
+}
+
+.logo {
+    height: 100px;
 }

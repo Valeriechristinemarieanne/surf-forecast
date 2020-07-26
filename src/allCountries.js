@@ -1,5 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+/* import Header from "./header"; */
+import country from "./country";
 import {
     Typography,
     Container,
@@ -9,6 +11,7 @@ import {
     CardMedia,
     CardContent,
     makeStyles,
+    Breadcrumbs,
 } from "@material-ui/core";
 
 const useStyles = makeStyles({
@@ -26,6 +29,16 @@ export default function allCountries() {
     const classes = useStyles();
     return (
         <Container>
+            <Breadcrumbs aria-label="breadcrumb">
+                <Link color="inherit" to="/">
+                    Home
+                </Link>
+                <Typography color="textPrimary">Surfing in Europe</Typography>
+            </Breadcrumbs>
+            <country />
+
+            {/*  <Header />
+            </Container>  */}
             <Typography variant="h4">Surfing in Europe</Typography>
             <Typography variant="subtitle1" component="p" className="subtitle">
                 Typically when we read about the world’s best surfing spots we
@@ -94,6 +107,68 @@ export default function allCountries() {
                                     climate, good food and an interesting
                                     history - oh, and world class surf - lots of
                                     world class surf.
+                                </Typography>
+                            </CardContent>
+                        </CardActionArea>
+                    </Card>
+                </Link>
+                <Link to="/allCountries/france">
+                    <Card className={classes.root}>
+                        <CardActionArea>
+                            <CardMedia
+                                className={classes.media}
+                                image="/Surfing-in-France.jpg"
+                                title="Surfing in France"
+                            />
+                            <CardContent>
+                                <Typography variant="h5">France</Typography>
+                                <Typography variant="body2" component="p">
+                                    Whether you're looking for reelling ten foot
+                                    points, endless mellow six foot walls or the
+                                    perfect wave to learn on, Morocco hast it
+                                    all.
+                                </Typography>
+                            </CardContent>
+                        </CardActionArea>
+                    </Card>
+                </Link>
+                <Link to="/allCountries/england">
+                    <Card className={classes.root}>
+                        <CardActionArea>
+                            <CardMedia
+                                className={classes.media}
+                                image="/Surfing-in-England.jpg"
+                                title="Surfing in France"
+                            />
+                            <CardContent>
+                                <Typography variant="h5">England</Typography>
+                                <Typography variant="body2" component="p">
+                                    Whether you're looking for reelling ten foot
+                                    points, endless mellow six foot walls or the
+                                    perfect wave to learn on, Morocco hast it
+                                    all.
+                                </Typography>
+                            </CardContent>
+                        </CardActionArea>
+                    </Card>
+                </Link>
+                <Link to="/allCountries/france">
+                    <Card className={classes.root}>
+                        <CardActionArea>
+                            <CardMedia
+                                className={classes.media}
+                                image="/Surfing-in-nl.jpg"
+                                title="Surfing in the Netherlands"
+                            />
+                            <CardContent>
+                                <Typography variant="h5">
+                                    The Netherlands
+                                </Typography>
+                                <Typography variant="body2" component="p">
+                                    Whether you're looking for reelling ten foot
+                                    points, endless mellow six foot walls or the
+                                    perfect wave to learn on, Morocco hast it
+                                    all.
                                 </Typography>
                             </CardContent>
                         </CardActionArea>

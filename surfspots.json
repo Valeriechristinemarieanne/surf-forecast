@@ -3,81 +3,99 @@
         "name": "anchorpoint",
         "displayname": "Anchor Point",
         "country": "Morocco",
+        "countryImage": "",
+        "countryDescription": "",
         "lat": 30.543675,
         "lng": -9.724311,
         "description": "An easy going great surfspot for all levels",
-        "map": "https://upload.wikimedia.org/wikipedia/commons/3/34/Kahlil_Gibran_1913.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/3/34/Kahlil_Gibran_1913.jpg"
     },
     {
         "displayname": "Imsouane",
         "name": "imsouane",
         "country": "Morocco",
+        "countryImage": "",
+        "countryDescription": "",
         "lat": 30.837627,
         "lng": -9.818808,
         "description": "A great place for long rides on a 600m waveline",
-        "map": "https://upload.wikimedia.org/wikipedia/commons/3/34/Kahlil_Gibran_1913.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/3/34/Kahlil_Gibran_1913.jpg"
     },
     {
         "name": "devilsrock",
         "displayname": "Devils Rock",
         "country": "Morocco",
+        "countryImage": "",
+        "countryDescription": "",
         "lat": 30.505823,
         "lng": -9.688233,
         "description": "A little tricky for beginners, great place for experienced surfers",
-        "map": "https://upload.wikimedia.org/wikipedia/commons/3/34/Kahlil_Gibran_1913.jpg"
+        "image": "https://surfmaroc.com/wp-content/uploads/image-cache-dir/Msp-anchors-carve-393998r3hb4612brdxo0zk.jpg"
     },
     {
         "name": "deba",
         "displayname": "Deba",
         "country": "Spain",
+        "countryImage": "",
+        "countryDescription": "",
         "lat": 43.301455,
         "lng": -2.351142,
         "description": "Wonderful surfspot in the North of Spain, wonderful for intermediates",
-        "map": "https://upload.wikimedia.org/wikipedia/commons/3/34/Kahlil_Gibran_1913.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/3/34/Kahlil_Gibran_1913.jpg"
     },
     {
         "name": "zarautz",
         "displayname": "Zarautz",
         "country": "Spain",
+        "countryImage": "",
+        "countryDescription": "",
         "lat": 43.29272,
         "lng": -2.168792,
         "description": "On the northshore of spain",
-        "map": "https://upload.wikimedia.org/wikipedia/commons/3/34/Kahlil_Gibran_1913.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/3/34/Kahlil_Gibran_1913.jpg"
     },
     {
         "name": "zurriola",
         "displayname": "Zurriola",
         "country": "Spain",
+        "countryImage": "",
+        "countryDescription": "",
         "lat": 43.329122,
         "lng": -1.977242,
         "description": "A great spot close to San Sebastian",
-        "map": "https://upload.wikimedia.org/wikipedia/commons/3/34/Kahlil_Gibran_1913.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/3/34/Kahlil_Gibran_1913.jpg"
     },
     {
         "name": "supertubos",
         "displayname": "Supertubos",
         "country": "Portugal",
+        "countryImage": "",
+        "countryDescription": "",
         "lat": 39.343401,
         "lng": -9.369931,
         "description": "Famous spot for barrels!!",
-        "map": "https://upload.wikimedia.org/wikipedia/commons/3/34/Kahlil_Gibran_1913.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/3/34/Kahlil_Gibran_1913.jpg"
     },
     {
         "name": "lagida",
         "displayname": "Lagida",
         "country": "Portugal",
+        "countryImage": "",
+        "countryDescription": "",
         "lat": 39.375679,
         "lng": -9.334224,
         "description": "Easy going beach break",
-        "map": "https://upload.wikimedia.org/wikipedia/commons/3/34/Kahlil_Gibran_1913.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/3/34/Kahlil_Gibran_1913.jpg"
     },
     {
         "name": "cerro",
         "displayname": "Cerro",
         "country": "Portugal",
+        "countryImage": "",
+        "countryDescription": "",
         "lat": 39.365316,
         "lng": -9.360327,
         "description": "A easy beach for beginners",
-        "map": "https://upload.wikimedia.org/wikipedia/commons/3/34/Kahlil_Gibran_1913.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/3/34/Kahlil_Gibran_1913.jpg"
     }
 ]
