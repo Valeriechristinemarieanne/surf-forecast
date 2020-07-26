@@ -1,3 +1,7 @@
+.vscode
 node_modules
-.DS_Store
+dist
+*.log
+yarn.lock
 secrets.json
+.DS_Store
