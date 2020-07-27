@@ -61,17 +61,14 @@ export default function allCountries() {
                 waters are oh so very blue, clear and, believe it or not, even
                 warm too!
             </Typography>
-            <Typography variant="subtitle1" className={classes.Subtitle}>
-                From the United Kingdom to Spain, France, and Portugal, the surf
-                in Western Europe can be pretty spectacular when it wants to be!
-            </Typography>
+
             <Grid
                 container
                 direction="row"
                 justify="center"
                 alignItems="center"
             >
-                <Link href="/allCountries/morocco">
+                <Link underline="none" href="/allCountries/morocco">
                     <Card className={classes.root}>
                         <CardActionArea>
                             <CardMedia
@@ -91,7 +88,7 @@ export default function allCountries() {
                         </CardActionArea>
                     </Card>
                 </Link>
-                <Link href="/allCountries/portugal">
+                <Link underline="none" href="/allCountries/portugal">
                     <Card className={classes.root}>
                         <CardActionArea>
                             <CardMedia
@@ -111,7 +108,7 @@ export default function allCountries() {
                         </CardActionArea>
                     </Card>
                 </Link>
-                <Link href="/allCountries/spain">
+                <Link underline="none" href="/allCountries/spain">
                     <Card className={classes.root}>
                         <CardActionArea>
                             <CardMedia
@@ -131,7 +128,7 @@ export default function allCountries() {
                         </CardActionArea>
                     </Card>
                 </Link>
-                <Link href="/allCountries/france">
+                <Link underline="none" href="/allCountries/france">
                     <Card className={classes.root}>
                         <CardActionArea>
                             <CardMedia
@@ -151,7 +148,7 @@ export default function allCountries() {
                         </CardActionArea>
                     </Card>
                 </Link>
-                <Link href="/allCountries/england">
+                <Link underline="none" href="/allCountries/england">
                     <Card className={classes.root}>
                         <CardActionArea>
                             <CardMedia
@@ -171,7 +168,7 @@ export default function allCountries() {
                         </CardActionArea>
                     </Card>
                 </Link>
-                <Link href="/allCountries/france">
+                <Link underline="none" href="/allCountries/france">
                     <Card className={classes.root}>
                         <CardActionArea>
                             <CardMedia

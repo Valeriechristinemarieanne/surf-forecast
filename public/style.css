@@ -17,17 +17,13 @@ body {
 
 /* allCountries page */
 
-img {
-    height: 650px;
-    /*  width: 800px; */
-    object-fit: cover;
-}
-
 .countryimage {
-    height: 400px;
+    height: 420px;
     object-fit: cover;
-    width: 90%;
-    padding-left: 50px;
+    width: 100%;
+    padding-left: 0;
+    margin: 0;
+    /*  background-position: top bottom; */
 }
 
 a {

@@ -10,12 +10,12 @@ import {
     Link,
     makeStyles,
     Grid,
-    GridList,
+    Divider,
 } from "@material-ui/core";
 
 const useStyles = makeStyles({
     root: {
-        maxWidth: 300,
+        maxWidth: 320,
         maxHeight: 450,
         margin: 30,
     },
@@ -36,45 +36,67 @@ const useStyles = makeStyles({
         paddingBottom: 30,
         maxWidth: "90%",
     },
+    Container: {
+        display: "flex",
+        flexDirection: "row",
+        padding: 0,
+        margin: 0,
+        width: "100%",
+    },
+    BreadcrumbsContainer: {
+        paddingTop: 30,
+        paddingLeft: 50,
+    },
+    SearchContainer: {
+        paddingTop: 30,
+        paddingLeft: 50,
+    },
 });
 
 export default function morocco() {
     const classes = useStyles();
     return (
-        <Container>
-            <Breadcrumbs aria-label="breadcrumb">
-                <Link underline="none" color="inherit" href="/">
-                    Home
-                </Link>
-                <Link underline="none" color="inherit" href="/allCountries">
-                    Surfing in Europe
-                </Link>
-                <Typography color="textPrimary">Morocco</Typography>
-            </Breadcrumbs>
+        <Container disableGutters>
+            <img className="countryimage" src="/morocco1.jpg" />
+            <Container className={classes.BreadcrumbsContainer}>
+                <Breadcrumbs aria-label="breadcrumb">
+                    <Link underline="none" color="inherit" href="/">
+                        Home
+                    </Link>
+                    <Link underline="none" color="inherit" href="/allCountries">
+                        Surfing in Europe
+                    </Link>
+                    <Typography color="textPrimary">Morocco</Typography>
+                </Breadcrumbs>
+            </Container>
             <Typography className={classes.h4} gutterBottom variant="h4">
                 Surfing in Morocco
             </Typography>
-            <Typography variant="subtitle1" className={classes.Subtitle}>
-                Morocco's pleasant climate and exposure to the North Atlantic's
-                swells make it an attractive surfing destination, especially
-                given it's close proximity to Europe. Morocco delivers her most
-                tasty waves during fall, winter and spring. The land of the
-                right-hand point break.
-            </Typography>
-            <img className="countryimage" src="/Surfing-in-Morocco.jpg" />
-            <Typography variant="subtitle1" className={classes.Subtitle}>
-                From a surfer’s standpoint, the Iberian Peninsula has it all.
-                And Portugal takes the prize! Its outstanding surf culture,
-                authentic charm, the cute little whitewashed villages all along
-                its coast, great food, and world-class waves draw an
-                international crowd of surfers. Notwithstanding the fact that
-                it’s one of the best places on the planet to learn to surf, with
-                numerous surf camps and mellow waves to practice on.
-            </Typography>
-
-            <Typography className={classes.h6} gutterBottom variant="h6">
-                Find your perfect surf spot in Morrocco
-            </Typography>
+            <Container className={classes.Container}>
+                <Typography variant="subtitle1" className={classes.Subtitle}>
+                    Morocco's pleasant climate and exposure to the North
+                    Atlantic's swells make it an attractive surfing destination,
+                    especially given it's close proximity to Europe. Morocco
+                    delivers her most tasty waves during fall, winter and
+                    spring. The land of the right-hand point break. From a
+                    surfer’s standpoint, the Iberian Peninsula has it all. And
+                    Portugal takes the prize! Its outstanding surf culture,
+                    authentic charm, the cute little whitewashed villages all
+                    along its coast, great food, and world-class waves draw an
+                    international crowd of surfers. Notwithstanding the fact
+                    that it’s one of the best places on the planet to learn to
+                    surf, with numerous surf camps and mellow waves to practice
+                    on.
+                </Typography>
+            </Container>
+            <Container className={classes.DividerContainer}>
+                <Divider variant="middle" />
+            </Container>
+            <Container className={classes.SearchContainer}>
+                <Typography className={classes.h6} gutterBottom variant="h6">
+                    Find your perfect surf spot in Morrocco
+                </Typography>
+            </Container>
             <Grid
                 container
                 direction="row"
@@ -112,9 +134,8 @@ export default function morocco() {
                             <CardContent>
                                 <Typography variant="h5">Imsouane </Typography>
                                 <Typography variant="body2" component="p">
-                                    This is a smooth longboard wave that rarely
-                                    gets messy, or big, and peels over soft sand
-                                    for 300 meters.
+                                    A smooth longboard wave that peels over soft
+                                    sand for 300 meters.
                                 </Typography>
                             </CardContent>
                         </CardActionArea>
@@ -134,14 +155,13 @@ export default function morocco() {
                                 </Typography>
                                 <Typography variant="body2" component="p">
                                     A tough name for a break each day can be
-                                    different. Right and left waves. But, in
-                                    particular, a right hand.
+                                    different. Right and left waves.
                                 </Typography>
                             </CardContent>
                         </CardActionArea>
                     </Card>
                 </Link>
-                <Link href="/allCountries/panoramas">
+                <Link underline="none" href="/allCountries/panoramas">
                     <Card className={classes.root}>
                         <CardActionArea>
                             <CardMedia
@@ -159,7 +179,7 @@ export default function morocco() {
                         </CardActionArea>
                     </Card>
                 </Link>
-                <Link href="/allCountries/bananabeach">
+                <Link underline="none" href="/allCountries/bananabeach">
                     <Card className={classes.root}>
                         <CardActionArea>
                             <CardMedia
@@ -179,7 +199,7 @@ export default function morocco() {
                         </CardActionArea>
                     </Card>
                 </Link>
-                <Link href="/allCountries/killerpoint">
+                <Link underline="none" href="/allCountries/killerpoint">
                     <Card className={classes.root}>
                         <CardActionArea>
                             <CardMedia
@@ -201,13 +221,6 @@ export default function morocco() {
                 </Link>
             </Grid>
 
-            <Typography variant="subtitle1" className={classes.Subtitle}>
-                Morocco's pleasant climate and exposure to the North Atlantic's
-                swells make it an attractive surfing destination, especially
-                given it's close proximity to Europe. Morocco delivers her most
-                tasty waves during fall, winter and spring. The land of the
-                right-hand point break.
-            </Typography>
             <Typography variant="subtitle1" className={classes.Subtitle}>
                 Morocco's pleasant climate and exposure to the North Atlantic's
                 swells make it an attractive surfing destination, especially
