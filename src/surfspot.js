@@ -4,11 +4,6 @@ import { API_KEY } from "../secrets.json";
 import {
     Typography,
     Container,
-    Grid,
-    Card,
-    CardActionArea,
-    CardMedia,
-    CardContent,
     Link,
     makeStyles,
     Table,
@@ -17,16 +12,31 @@ import {
     TableContainer,
     TableHead,
     TableRow,
-    Paper,
     Breadcrumbs,
     Divider,
 } from "@material-ui/core";
 
-const useStyles = makeStyles({
+import ForeCastInfo from "./forecastinfo";
+
+const useStyles = makeStyles((theme) => ({
     root: {
         width: 600,
         maxHeight: 450,
         margin: 30,
+    },
+    media: {
+        height: 0,
+        paddingTop: "56.25%", // 16:9
+    },
+    expand: {
+        transform: "rotate(0deg)",
+        marginLeft: "auto",
+        transition: theme.transitions.create("transform", {
+            duration: theme.transitions.duration.shortest,
+        }),
+    },
+    expandOpen: {
+        transform: "rotate(180deg)",
     },
     Container: {
         padding: 0,
@@ -52,7 +62,10 @@ const useStyles = makeStyles({
         maxWidth: 800,
         margin: 30,
     },
-});
+    tableContainer: {
+        paddingLeft: 50,
+    },
+}));
 
 const reducer = (state, action) => {
     if (action.type == "SURF_UPDATE") {
@@ -191,6 +204,10 @@ export default function Surfspot(props) {
             eveningWindSpeed: "",
         },
     });
+    const [expanded, setExpanded] = React.useState(false);
+    const handleExpandClick = () => {
+        setExpanded(!expanded);
+    };
 
     useEffect(() => {
         /* console.log("props.match.params: ", props.match.params); */
@@ -269,29 +286,19 @@ export default function Surfspot(props) {
             <Container className={classes.Container}>
                 <Divider variant="middle" />
             </Container>
-
-            {/* <Container>
-                <Typography className={classes.Subtitle} variant="h6">
+            <Container>
+                <Typography className={classes.Subtitle} variant="h5">
                     Your Forecast for {surfspot}
                 </Typography>{" "}
-            </Container> */}
-            {/*  <Card className={classes.root}>
-                <CardActionArea>
-                    <CardContent>
-                        <Typography variant="subtitle1">
-                            How to read a surf Forecast
-                        </Typography>
-                        <Typography>☀️ 🌫️</Typography>
-                    </CardContent>
-                </CardActionArea>
-            </Card> */}
-            <TableContainer className="tablecontainer">
+            </Container>
+            <ForeCastInfo />
+            <TableContainer className={classes.tableContainer}>
                 <Table className={classes.Table}>
                     <TableHead>
-                        <Typography variant="h6">T O D A Y</Typography>
+                        {/* <Typography variant="h6">T O D A Y</Typography> */}
                         <TableRow>
                             <TableCell>
-                                <Typography variant="h6 ">
+                                <Typography variant="h6">
                                     ☀️ {surfState.dayOne.lunchAirTemperature} °C
                                     🌫️
                                     {surfState.dayOne.lunchWaterTemperature} °C
@@ -348,13 +355,13 @@ export default function Surfspot(props) {
                     </TableBody>
                 </Table>
             </TableContainer>
-            <TableContainer className="tablecontainer">
+            <TableContainer className={classes.tableContainer}>
                 <Table className={classes.Table}>
                     <TableHead>
-                        <Typography variant="h6">T O M O R R O W</Typography>
+                        {/* <Typography variant="h6">T O M O R R O W</Typography> */}
                         <TableRow>
                             <TableCell>
-                                <Typography variant="h6 ">
+                                <Typography variant="h6">
                                     ☀️ {surfState.dayTwo.lunchAirTemperature} °C
                                     🌫️
                                     {surfState.dayTwo.lunchWaterTemperature} °C
@@ -412,16 +419,15 @@ export default function Surfspot(props) {
                     </TableBody>
                 </Table>
             </TableContainer>
-
-            <TableContainer className="tablecontainer">
+            <TableContainer className={classes.tableContainer}>
                 <Table className={classes.Table}>
                     <TableHead>
-                        <Typography variant="h6">
+                        {/*  <Typography variant="h6">
                             A F T E R {""}T O M O R R O W
-                        </Typography>
+                        </Typography> */}
                         <TableRow>
                             <TableCell>
-                                <Typography variant="h6 ">
+                                <Typography variant="h6">
                                     ☀️ {surfState.dayThree.lunchAirTemperature}{" "}
                                     °C 🌫️
                                     {

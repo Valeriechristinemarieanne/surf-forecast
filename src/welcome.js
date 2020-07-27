@@ -6,6 +6,7 @@ import {
     makeStyles,
     Link,
 } from "@material-ui/core";
+import createSpacing from "@material-ui/core/styles/createSpacing";
 
 const useStyles = makeStyles({
     Video: {
@@ -39,7 +40,6 @@ const useStyles = makeStyles({
     Button: {
         marginTop: 15,
         color: "white",
-        border: "white",
     },
     Link: {
         color: "whitesmoke",
@@ -59,7 +59,9 @@ export default function Welcome() {
             />
             <Container className={classes.Content}>
                 <Container className={classes.SubContent}>
-                    <Typography variant="h2">Surf's up</Typography>
+                    <Typography variant="h1" letterSpacing={2}>
+                        Surf's up
+                    </Typography>
                     <Button color="secondary" className={classes.Button}>
                         <Link
                             className={classes.Link}
