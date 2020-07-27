@@ -1,37 +1,7 @@
-   {/* <Container>
-                <img src="/surfing-in-portugal.jpg" alt="Surfing in Portugal" />
-                <Container className="textcontainer">
-                    <Typography variant="h3">PORTUGAL</Typography>
-                    <Typography variant="caption">
-                        Portugal has a very mild climate with solid surf often
-                        with offshore morning breezes are extremely common,
-                        making it a popular surfing destination for surfers from
-                        inside and outside Europe.
-                    </Typography>
-                </Container>
-            </Container>
-            <Container className="buttoncontainer">
-                <Button>
-                    <Link to="/allCountries/portugal">
-                        Find your spot in Portugal
-                    </Link>
-                </Button>
-            </Container>
-            <Container>
-                <img src="/surfing-in-spain.jpg" alt="Surfing in Spain" />
-                <Container className="textcontainer">
-                    <Typography variant="h3">SPAIN </Typography>
-                    <Typography variant="caption">
-                        Spain has a lot going for it, an excellent climate, good
-                        food and an interesting history - oh, and world class
-                        surf - lots and lots of world class surf.
-                    </Typography>
-                </Container>
-            </Container>
-            <Container className="buttoncontainer">
-                <Button>
-                    <Link to="/allCountries/spain">
-                        Find your spot in spain
-                    </Link>
-                </Button>
-            </Container> */}
+to do: 
+- render country & surfspot component
+- make breadcrumbs work
+- remove padding from welcome page
+- style button on welcome page
+- create margins between Typography elements
+- remove favicon

@@ -42,8 +42,10 @@ const useStyles = makeStyles({
         marginTop: 30,
         color: "white",
         border: "white",
-        padding: 10,
-        borderRadius: 5,
+    },
+    Link: {
+        color: "white",
+        border: "white",
     },
 });
 
@@ -62,8 +64,13 @@ export default function BackgroundVideo() {
             <Container className={classes.Content}>
                 <Container className={classes.SubContent}>
                     <Typography variant="h2">Surf's up</Typography>
-                    <Button color="primary" /* className={classes.Button} */>
-                        <Link underline="none" href="/allCountries">
+                    <Button color="secondary" className={classes.Button}>
+                        <Link
+                            className={classes.Link}
+                            color="primary"
+                            underline="none"
+                            href="/allCountries"
+                        >
                             Find your surf paradise
                         </Link>{" "}
                     </Button>

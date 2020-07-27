@@ -168,18 +168,19 @@ export default function Surfspot(props) {
     });
 
     useEffect(() => {
-        /* console.log("props.match.params: ", props.match.params); */
+        console.log("props.match.params: ", props.match.params);
         console.log("surfState", surfState);
         axios
             .get(
                 `/server/allCountries/${props.match.params.country}/${props.match.params.surfspot}`
             )
             .then((response) => {
+                console.log("response: ", response);
                 setSurfspot(response.data.displayname);
                 setDescription(response.data.description);
                 setImage(response.data.image);
 
-                /* const lat = response.data.lat;
+                const lat = response.data.lat;
                 const lng = response.data.lng;
                 const params =
                     "waveHeight,airTemperature,waterTemperature,wavePeriod,windSpeed";
@@ -211,7 +212,7 @@ export default function Surfspot(props) {
                             type: "SURF_UPDATE",
                             data: jsonData,
                         });
-                    }); */
+                    });
             })
             .catch((err) => {
                 console.log("error: ", err);
@@ -279,7 +280,7 @@ export default function Surfspot(props) {
                                 {surfState.dayOne.lunchAirTemperature}°C
                             </TableCell>
                             <TableCell>
-                                {surfState.dayOne.lunchTemperature}°C{" "}
+                                {surfState.dayOne.lunchWaterTemperature}°C{" "}
                             </TableCell>
                             <TableCell>
                                 {surfState.dayOne.lunchWaveHeight}{" "}
@@ -299,7 +300,7 @@ export default function Surfspot(props) {
                                 {surfState.dayOne.eveningAirTemperature}°C
                             </TableCell>
                             <TableCell>
-                                {surfState.dayOne.eveningTemperature}°C{" "}
+                                {surfState.dayOne.eveningWaterTemperature}°C{" "}
                             </TableCell>
                             <TableCell>
                                 {surfState.dayOne.eveningWaveHeight}{" "}
@@ -356,7 +357,7 @@ export default function Surfspot(props) {
                                 {surfState.dayTwo.lunchAirTemperature}°C
                             </TableCell>
                             <TableCell>
-                                {surfState.dayTwo.lunchTemperature}°C{" "}
+                                {surfState.dayTwo.lunchAirTemperature}°C{" "}
                             </TableCell>
                             <TableCell>
                                 {surfState.dayTwo.lunchWaveHeight}{" "}
@@ -376,7 +377,7 @@ export default function Surfspot(props) {
                                 {surfState.dayTwo.eveningAirTemperature}°C
                             </TableCell>
                             <TableCell>
-                                {surfState.dayTwo.eveningTemperature}°C{" "}
+                                {surfState.dayTwo.eveningWaterTemperature}°C{" "}
                             </TableCell>
                             <TableCell>
                                 {surfState.dayTwo.eveningWaveHeight}{" "}
@@ -433,7 +434,7 @@ export default function Surfspot(props) {
                                 {surfState.dayThree.lunchAirTemperature}°C
                             </TableCell>
                             <TableCell>
-                                {surfState.dayThree.lunchTemperature}°C{" "}
+                                {surfState.dayThree.lunchWaterTemperature}°C{" "}
                             </TableCell>
                             <TableCell>
                                 {surfState.dayThree.lunchWaveHeight}{" "}
@@ -453,7 +454,7 @@ export default function Surfspot(props) {
                                 {surfState.dayThree.eveningAirTemperature}°C
                             </TableCell>
                             <TableCell>
-                                {surfState.dayThree.eveningTemperature}°C{" "}
+                                {surfState.dayThree.eveningWaterTemperature}°C{" "}
                             </TableCell>
                             <TableCell>
                                 {surfState.dayThree.eveningWaveHeight}{" "}

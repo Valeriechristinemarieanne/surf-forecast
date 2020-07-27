@@ -1,7 +1,5 @@
 import React from "react";
-import { Link, Redirect } from "react-router-dom";
-/* import Header from "./header"; */
-import Country from "./country";
+/* import Country from "./country"; */
 import {
     Typography,
     Container,
@@ -12,11 +10,12 @@ import {
     CardContent,
     makeStyles,
     Breadcrumbs,
+    Link,
 } from "@material-ui/core";
 
 const useStyles = makeStyles({
     root: {
-        maxWidth: 480,
+        maxWidth: 530,
         maxHeight: 450,
         margin: 30,
     },
@@ -30,16 +29,18 @@ export default function allCountries() {
     return (
         <Container>
             <Breadcrumbs aria-label="breadcrumb">
-                <Link color="inherit" to="/">
+                <Link underline="none" color="inherit" href="/">
                     Home
                 </Link>
-                <Typography color="textPrimary">Surfing in Europe</Typography>
+                <Typography gutterBottom>Surfing in Europe</Typography>
             </Breadcrumbs>
             {/* <Country /> */}
 
             {/*  <Header />
             </Container>  */}
-            <Typography variant="h4">Surfing in Europe</Typography>
+            <Typography gutterBottom variant="h4">
+                Surfing in Europe
+            </Typography>
             <Typography variant="subtitle1" component="p" className="subtitle">
                 Typically when we read about the world’s best surfing spots we
                 find ourselves being directed towards the West Coast of the
@@ -49,7 +50,7 @@ export default function allCountries() {
                 the best of times but if you get a good sunny day you could
                 easily be in Bali or on the Sunshine Coast of Australia, for the
                 waters are oh so very blue, clear and, believe it or not, even
-                warm too!
+                warm!
             </Typography>
             <Typography variant="subtitle1" component="p" className="subtitle">
                 From the United Kingdom to Spain, France, and Portugal, the surf
@@ -61,12 +62,12 @@ export default function allCountries() {
                 justify="center"
                 alignItems="center"
             >
-                <Link to="/allCountries/morocco">
+                <Link underline="none" href="/allCountries/morocco">
                     <Card className={classes.root}>
                         <CardActionArea>
                             <CardMedia
                                 className={classes.media}
-                                image="/Surfing-in-Morocco.jpg"
+                                image="../../public/Surfing-in-Morocco.jpg"
                                 title="Surfing in Morocco"
                             />
                             <CardContent>
@@ -81,12 +82,12 @@ export default function allCountries() {
                         </CardActionArea>
                     </Card>
                 </Link>
-                <Link to="/allCountries/portugal">
+                <Link underline="none" href="/allCountries/portugal">
                     <Card className={classes.root}>
                         <CardActionArea>
                             <CardMedia
                                 className={classes.media}
-                                image="/surfing-in-portugal.jpg"
+                                image="../../public/surfing-in-portugal.jpg"
                                 title="Surfing in Portugal"
                             />
                             <CardContent>
@@ -101,12 +102,12 @@ export default function allCountries() {
                         </CardActionArea>
                     </Card>
                 </Link>
-                <Link to="/allCountries/spain">
+                <Link underline="none" href="/allCountries/spain">
                     <Card className={classes.root}>
                         <CardActionArea>
                             <CardMedia
                                 className={classes.media}
-                                image="/surfing-in-spain.jpg"
+                                image="../../public/surfing-in-spain.jpg"
                                 title="Surfing in Spain"
                             />
                             <CardContent>
@@ -121,12 +122,12 @@ export default function allCountries() {
                         </CardActionArea>
                     </Card>
                 </Link>
-                <Link to="/allCountries/france">
+                <Link underline="none" href="/allCountries/france">
                     <Card className={classes.root}>
                         <CardActionArea>
                             <CardMedia
                                 className={classes.media}
-                                image="/Surfing-in-France.jpg"
+                                image="../../public/Surfing-in-France.jpg"
                                 title="Surfing in France"
                             />
                             <CardContent>
@@ -141,12 +142,12 @@ export default function allCountries() {
                         </CardActionArea>
                     </Card>
                 </Link>
-                <Link to="/allCountries/england">
+                <Link underline="none" href="/allCountries/england">
                     <Card className={classes.root}>
                         <CardActionArea>
                             <CardMedia
                                 className={classes.media}
-                                image="/Surfing-in-England.jpg"
+                                image="../../public/Surfing-in-England.jpg"
                                 title="Surfing in France"
                             />
                             <CardContent>
@@ -161,12 +162,12 @@ export default function allCountries() {
                         </CardActionArea>
                     </Card>
                 </Link>
-                <Link to="/allCountries/france">
+                <Link underline="none" href="/allCountries/france">
                     <Card className={classes.root}>
                         <CardActionArea>
                             <CardMedia
                                 className={classes.media}
-                                image="/Surfing-in-nl.jpg"
+                                image="../../public/Surfing-in-nl.jpg"
                                 title="Surfing in the Netherlands"
                             />
                             <CardContent>

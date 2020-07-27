@@ -38,7 +38,7 @@ app.get("/server/allCountries/:country/:surfspot", (req, res) => {
     res.json(selectedSurfspot);
 });
 
-app.get("/server/allCountries/:country", (req, res) => {
+/* app.get("/server/allCountries/:country", (req, res) => {
     console.log("req.params:", req.params);
     const { country } = req.params;
 
@@ -50,7 +50,7 @@ app.get("/server/allCountries/:country", (req, res) => {
 
     console.log("selectedCountry", selectedCountry);
     res.json(selectedCountry);
-});
+}); */
 
 app.get("*", function (req, res) {
     res.sendFile(__dirname + "/index.html");
