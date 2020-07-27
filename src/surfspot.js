@@ -27,6 +27,26 @@ const useStyles = makeStyles({
     table: {
         minWidth: 550,
     },
+    Container: {
+        padding: 0,
+        margin: 0,
+        width: "100%",
+    },
+    BreadcrumbsContainer: {
+        paddingTop: 30,
+        paddingLeft: 50,
+    },
+    h4: {
+        paddingTop: 30,
+        paddingLeft: 50,
+    },
+    Subtitle: {
+        paddingTop: 30,
+        paddingLeft: 50,
+        paddingRight: 50,
+        paddingBottom: 30,
+        maxWidth: "90%",
+    },
 });
 
 const reducer = (state, action) => {
@@ -179,7 +199,7 @@ export default function Surfspot(props) {
                 setDescription(response.data.description);
                 setImage(response.data.image);
 
-                const lat = response.data.lat;
+                /* const lat = response.data.lat;
                 const lng = response.data.lng;
                 const params =
                     "waveHeight,airTemperature,waterTemperature,wavePeriod,windSpeed";
@@ -211,7 +231,7 @@ export default function Surfspot(props) {
                             type: "SURF_UPDATE",
                             data: jsonData,
                         });
-                    });
+                    }); */
             })
             .catch((err) => {
                 console.log("error: ", err);
@@ -219,24 +239,28 @@ export default function Surfspot(props) {
     }, []);
 
     return (
-        <Container>
-            <Breadcrumbs aria-label="breadcrumb">
-                <Link color="inherit" to="/">
-                    Home
-                </Link>
-                <Link color="inherit" to="/allCountries">
-                    Surfing in Europe
-                </Link>
-                <Link color="inherit" to="allCountries/morocco">
-                    Surfing in Morocco
-                </Link>
-                <Typography color="textPrimary">{surfspot}</Typography>
-            </Breadcrumbs>
-            <Typography variant="h4">{surfspot}</Typography>
-            <Typography variant="subtitle1" component="p" className="subtitle">
+        <Container className={classes.Container}>
+            <img className="surfspotimage" src={image} />
+            <Container className={classes.BreadcrumbsContainer}>
+                <Breadcrumbs aria-label="breadcrumb">
+                    <Link color="inherit" href="/">
+                        Home
+                    </Link>
+                    <Link color="inherit" href="/allCountries">
+                        Surfing in Europe
+                    </Link>
+                    <Link color="inherit" href="/allCountries/morocco">
+                        Surfing in Morocco
+                    </Link>
+                    <Typography color="textPrimary">{surfspot}</Typography>
+                </Breadcrumbs>
+            </Container>
+            <Typography className={classes.h4} gutterBottom variant="h4">
+                {surfspot}
+            </Typography>
+            <Typography className={classes.Subtitle} variant="subtitle1">
                 {description}
             </Typography>
-            <img src={image}></img>
 
             <TableContainer component={Paper} className="tablecontainer">
                 <Table>

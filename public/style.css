@@ -18,12 +18,19 @@ body {
 /* allCountries page */
 
 .countryimage {
-    height: 420px;
+    height: 300px;
     object-fit: cover;
     width: 100%;
     padding-left: 0;
     margin: 0;
-    /*  background-position: top bottom; */
+}
+
+.surfspotimage {
+    height: 300px;
+    object-fit: cover;
+    width: 100%;
+    padding-left: 0;
+    margin: 0;
 }
 
 a {
