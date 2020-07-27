@@ -1,6 +1,4 @@
 import React from "react";
-import { Link, Redirect } from "react-router-dom";
-/* import Header from "./header"; */
 import Country from "./country";
 import {
     Typography,
@@ -12,16 +10,26 @@ import {
     CardContent,
     makeStyles,
     Breadcrumbs,
+    Link,
 } from "@material-ui/core";
 
 const useStyles = makeStyles({
     root: {
-        maxWidth: 480,
+        maxWidth: 530,
         maxHeight: 450,
         margin: 30,
     },
     media: {
         height: 180,
+    },
+    h4: {
+        paddingTop: 30,
+        paddingLeft: 50,
+    },
+    Subtitle: {
+        paddingTop: 30,
+        paddingLeft: 50,
+        paddingRight: 50,
     },
 });
 
@@ -30,7 +38,7 @@ export default function allCountries() {
     return (
         <Container>
             <Breadcrumbs aria-label="breadcrumb">
-                <Link color="inherit" to="/">
+                <Link color="inherit" href="/">
                     Home
                 </Link>
                 <Typography color="textPrimary">Surfing in Europe</Typography>
@@ -39,8 +47,10 @@ export default function allCountries() {
 
             {/*  <Header />
             </Container>  */}
-            <Typography variant="h4">Surfing in Europe</Typography>
-            <Typography variant="subtitle1" component="p" className="subtitle">
+            <Typography className={classes.h4} gutterBottom variant="h4">
+                Surfing in Europe
+            </Typography>
+            <Typography variant="subtitle1" className={classes.Subtitle}>
                 Typically when we read about the world’s best surfing spots we
                 find ourselves being directed towards the West Coast of the
                 United States of America, to Australia, or to Bali on Java in
@@ -51,7 +61,7 @@ export default function allCountries() {
                 waters are oh so very blue, clear and, believe it or not, even
                 warm too!
             </Typography>
-            <Typography variant="subtitle1" component="p" className="subtitle">
+            <Typography variant="subtitle1" className={classes.Subtitle}>
                 From the United Kingdom to Spain, France, and Portugal, the surf
                 in Western Europe can be pretty spectacular when it wants to be!
             </Typography>
@@ -61,7 +71,7 @@ export default function allCountries() {
                 justify="center"
                 alignItems="center"
             >
-                <Link to="/allCountries/morocco">
+                <Link href="/allCountries/morocco">
                     <Card className={classes.root}>
                         <CardActionArea>
                             <CardMedia
@@ -81,7 +91,7 @@ export default function allCountries() {
                         </CardActionArea>
                     </Card>
                 </Link>
-                <Link to="/allCountries/portugal">
+                <Link href="/allCountries/portugal">
                     <Card className={classes.root}>
                         <CardActionArea>
                             <CardMedia
@@ -101,7 +111,7 @@ export default function allCountries() {
                         </CardActionArea>
                     </Card>
                 </Link>
-                <Link to="/allCountries/spain">
+                <Link href="/allCountries/spain">
                     <Card className={classes.root}>
                         <CardActionArea>
                             <CardMedia
@@ -121,7 +131,7 @@ export default function allCountries() {
                         </CardActionArea>
                     </Card>
                 </Link>
-                <Link to="/allCountries/france">
+                <Link href="/allCountries/france">
                     <Card className={classes.root}>
                         <CardActionArea>
                             <CardMedia
@@ -141,7 +151,7 @@ export default function allCountries() {
                         </CardActionArea>
                     </Card>
                 </Link>
-                <Link to="/allCountries/england">
+                <Link href="/allCountries/england">
                     <Card className={classes.root}>
                         <CardActionArea>
                             <CardMedia
@@ -161,7 +171,7 @@ export default function allCountries() {
                         </CardActionArea>
                     </Card>
                 </Link>
-                <Link to="/allCountries/france">
+                <Link href="/allCountries/france">
                     <Card className={classes.root}>
                         <CardActionArea>
                             <CardMedia

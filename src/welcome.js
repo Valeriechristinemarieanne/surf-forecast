@@ -10,13 +10,13 @@ import {
 const useStyles = makeStyles({
     Video: {
         height: "100%",
+        overflow: "hidden",
     },
     Container: {
         position: "relative",
         width: "100%",
         minHeight: 300,
         maxHeight: 800,
-        overflow: "hidden",
         margin: 0,
         padding: 0,
     },
@@ -29,6 +29,7 @@ const useStyles = makeStyles({
         height: "100%",
         display: "flex",
         alignItems: "center",
+        justifyContent: "center",
         backgroundColor: "rgba(0,0,0,0.3)",
     },
     SubContent: {

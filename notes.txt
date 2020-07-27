@@ -1,15 +1,2 @@
-
-
-             /* <Container className="welcomecover">
-            <Card>
-                <CardMedia
-                    className={classes.media}
-                    image="/surfers.jpg"
-                    title="Surfers"
-                />
-                <Typography variant="h2">Surf's up</Typography>
-                <Button>
-                    <Link to="/allCountries">Find your surf paradise</Link>{" "}
-                </Button>
-            </Card>
-        </Container> */
+to do: 
+- remove scroll from welcome page
