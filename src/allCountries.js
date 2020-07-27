@@ -48,7 +48,7 @@ export default function allCountries() {
             {/*  <Header />
             </Container>  */}
             <Typography className={classes.h4} gutterBottom variant="h4">
-                Surfing in Europe
+                Surfing around the World
             </Typography>
             <Typography variant="subtitle1" className={classes.Subtitle}>
                 Typically when we read about the world’s best surfing spots we

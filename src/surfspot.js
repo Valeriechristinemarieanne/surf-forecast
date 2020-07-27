@@ -18,14 +18,15 @@ import {
     TableHead,
     TableRow,
     Paper,
-    Image,
-    Button,
     Breadcrumbs,
+    Divider,
 } from "@material-ui/core";
 
 const useStyles = makeStyles({
-    table: {
-        minWidth: 550,
+    root: {
+        width: 600,
+        maxHeight: 450,
+        margin: 30,
     },
     Container: {
         padding: 0,
@@ -46,6 +47,10 @@ const useStyles = makeStyles({
         paddingRight: 50,
         paddingBottom: 30,
         maxWidth: "90%",
+    },
+    Table: {
+        maxWidth: 800,
+        margin: 30,
     },
 });
 
@@ -247,7 +252,7 @@ export default function Surfspot(props) {
                         Home
                     </Link>
                     <Link color="inherit" href="/allCountries">
-                        Surfing in Europe
+                        Surfing around the world
                     </Link>
                     <Link color="inherit" href="/allCountries/morocco">
                         Surfing in Morocco
@@ -261,14 +266,37 @@ export default function Surfspot(props) {
             <Typography className={classes.Subtitle} variant="subtitle1">
                 {description}
             </Typography>
+            <Container className={classes.Container}>
+                <Divider variant="middle" />
+            </Container>
 
-            <TableContainer component={Paper} className="tablecontainer">
-                <Table>
+            {/* <Container>
+                <Typography className={classes.Subtitle} variant="h6">
+                    Your Forecast for {surfspot}
+                </Typography>{" "}
+            </Container> */}
+            {/*  <Card className={classes.root}>
+                <CardActionArea>
+                    <CardContent>
+                        <Typography variant="subtitle1">
+                            How to read a surf Forecast
+                        </Typography>
+                        <Typography>☀️ 🌫️</Typography>
+                    </CardContent>
+                </CardActionArea>
+            </Card> */}
+            <TableContainer className="tablecontainer">
+                <Table className={classes.Table}>
                     <TableHead>
+                        <Typography variant="h6">T O D A Y</Typography>
                         <TableRow>
-                            <TableCell></TableCell>
-                            <TableCell>☀️</TableCell>
-                            <TableCell>🌫️</TableCell>
+                            <TableCell>
+                                <Typography variant="h6 ">
+                                    ☀️ {surfState.dayOne.lunchAirTemperature} °C
+                                    🌫️
+                                    {surfState.dayOne.lunchWaterTemperature} °C
+                                </Typography>
+                            </TableCell>
                             <TableCell>Wave Height</TableCell>
                             <TableCell>Wave Period</TableCell>
                             <TableCell>Wind Speed</TableCell>
@@ -278,12 +306,6 @@ export default function Surfspot(props) {
                         <TableRow>
                             <TableCell component="th" scope="row">
                                 Morning Session
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayOne.morningAirTemperature}°C
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayOne.morningWaterTemperature}°C{" "}
                             </TableCell>
                             <TableCell>
                                 {surfState.dayOne.morningWaveHeight}{" "}
@@ -300,12 +322,6 @@ export default function Surfspot(props) {
                                 Lunch Session
                             </TableCell>
                             <TableCell>
-                                {surfState.dayOne.lunchAirTemperature}°C
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayOne.lunchWaterTemperature}°C{" "}
-                            </TableCell>
-                            <TableCell>
                                 {surfState.dayOne.lunchWaveHeight}{" "}
                             </TableCell>
                             <TableCell>
@@ -320,12 +336,6 @@ export default function Surfspot(props) {
                                 After Work Session
                             </TableCell>
                             <TableCell>
-                                {surfState.dayOne.eveningAirTemperature}°C
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayOne.eveningWaterTemperature}°C{" "}
-                            </TableCell>
-                            <TableCell>
                                 {surfState.dayOne.eveningWaveHeight}{" "}
                             </TableCell>
                             <TableCell>
@@ -338,14 +348,19 @@ export default function Surfspot(props) {
                     </TableBody>
                 </Table>
             </TableContainer>
-
-            <TableContainer component={Paper} className="tablecontainer">
-                <Table>
+            <TableContainer className="tablecontainer">
+                <Table className={classes.Table}>
                     <TableHead>
+                        <Typography variant="h6">T O M O R R O W</Typography>
                         <TableRow>
-                            <TableCell></TableCell>
-                            <TableCell>☀️</TableCell>
-                            <TableCell>🌫️</TableCell>
+                            <TableCell>
+                                <Typography variant="h6 ">
+                                    ☀️ {surfState.dayTwo.lunchAirTemperature} °C
+                                    🌫️
+                                    {surfState.dayTwo.lunchWaterTemperature} °C
+                                </Typography>
+                            </TableCell>
+
                             <TableCell>Wave Height</TableCell>
                             <TableCell>Wave Period</TableCell>
                             <TableCell>Wind Speed</TableCell>
@@ -355,12 +370,6 @@ export default function Surfspot(props) {
                         <TableRow>
                             <TableCell component="th" scope="row">
                                 Morning Session
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayTwo.morningAirTemperature}°C
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayTwo.morningWaterTemperature}°C{" "}
                             </TableCell>
                             <TableCell>
                                 {surfState.dayTwo.morningWaveHeight}{" "}
@@ -377,12 +386,6 @@ export default function Surfspot(props) {
                                 Lunch Session
                             </TableCell>
                             <TableCell>
-                                {surfState.dayTwo.lunchAirTemperature}°C
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayTwo.lunchWaterTemperature}°C{" "}
-                            </TableCell>
-                            <TableCell>
                                 {surfState.dayTwo.lunchWaveHeight}{" "}
                             </TableCell>
                             <TableCell>
@@ -395,12 +398,6 @@ export default function Surfspot(props) {
                         <TableRow>
                             <TableCell component="th" scope="row">
                                 After Work Session
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayTwo.eveningAirTemperature}°C
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayTwo.eveningWaterTemperature}°C{" "}
                             </TableCell>
                             <TableCell>
                                 {surfState.dayTwo.eveningWaveHeight}{" "}
@@ -416,13 +413,24 @@ export default function Surfspot(props) {
                 </Table>
             </TableContainer>
 
-            <TableContainer component={Paper} className="tablecontainer">
-                <Table>
+            <TableContainer className="tablecontainer">
+                <Table className={classes.Table}>
                     <TableHead>
+                        <Typography variant="h6">
+                            A F T E R {""}T O M O R R O W
+                        </Typography>
                         <TableRow>
-                            <TableCell></TableCell>
-                            <TableCell>☀️</TableCell>
-                            <TableCell>🌫️</TableCell>
+                            <TableCell>
+                                <Typography variant="h6 ">
+                                    ☀️ {surfState.dayThree.lunchAirTemperature}{" "}
+                                    °C 🌫️
+                                    {
+                                        surfState.dayThree.lunchWaterTemperature
+                                    }{" "}
+                                    °C
+                                </Typography>
+                            </TableCell>
+
                             <TableCell>Wave Height</TableCell>
                             <TableCell>Wave Period</TableCell>
                             <TableCell>Wind Speed</TableCell>
@@ -432,12 +440,6 @@ export default function Surfspot(props) {
                         <TableRow>
                             <TableCell component="th" scope="row">
                                 Morning Session
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayThree.morningAirTemperature}°C
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayThree.morningWaterTemperature}°C{" "}
                             </TableCell>
                             <TableCell>
                                 {surfState.dayThree.morningWaveHeight}{" "}
@@ -454,12 +456,6 @@ export default function Surfspot(props) {
                                 Lunch Session
                             </TableCell>
                             <TableCell>
-                                {surfState.dayThree.lunchAirTemperature}°C
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayThree.lunchWaterTemperature}°C{" "}
-                            </TableCell>
-                            <TableCell>
                                 {surfState.dayThree.lunchWaveHeight}{" "}
                             </TableCell>
                             <TableCell>
@@ -472,12 +468,6 @@ export default function Surfspot(props) {
                         <TableRow>
                             <TableCell component="th" scope="row">
                                 After Work Session
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayThree.eveningAirTemperature}°C
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayThree.eveningWaterTemperature}°C{" "}
                             </TableCell>
                             <TableCell>
                                 {surfState.dayThree.eveningWaveHeight}{" "}
