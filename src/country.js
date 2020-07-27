@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Typography, Container } from "@material-ui/core";
 
-export default function country(props) {
+export default function Country(props) {
     const [country, setCountry] = useState("");
     const [countryImage, setCountryImage] = useState("");
     const [countryDescription, setCountryDescription] = useState("");
 
     useEffect(() => {
+        console.log("I am in country component before axios");
+
         axios
             .get(`/server/allCountries/${props.match.params.country}`)
             .then((response) => {

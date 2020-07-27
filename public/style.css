@@ -9,11 +9,6 @@ body {
 /* Welcome page */
 .maincontainer {
     background-color: white;
-    padding-top: 30px;
-}
-
-h1 {
-    margin: 0;
 }
 
 .welcomecover {
@@ -23,7 +18,7 @@ h1 {
 /* allCountries page */
 
 img {
-    height: 450px;
+    height: 650px;
     /*  width: 800px; */
     object-fit: cover;
 }
@@ -33,6 +28,7 @@ a {
 }
 
 h4 {
+    padding-top: 40px;
     padding-bottom: 30px;
     padding-left: 20px;
 }

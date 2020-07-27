@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, Redirect } from "react-router-dom";
 /* import Header from "./header"; */
-import country from "./country";
+import Country from "./country";
 import {
     Typography,
     Container,
@@ -35,7 +35,7 @@ export default function allCountries() {
                 </Link>
                 <Typography color="textPrimary">Surfing in Europe</Typography>
             </Breadcrumbs>
-            <country />
+            {/* <Country /> */}
 
             {/*  <Header />
             </Container>  */}
@@ -51,7 +51,16 @@ export default function allCountries() {
                 waters are oh so very blue, clear and, believe it or not, even
                 warm too!
             </Typography>
-            <Grid container direction="row" justify="left" alignItems="left">
+            <Typography variant="subtitle1" component="p" className="subtitle">
+                From the United Kingdom to Spain, France, and Portugal, the surf
+                in Western Europe can be pretty spectacular when it wants to be!
+            </Typography>
+            <Grid
+                container
+                direction="row"
+                justify="center"
+                alignItems="center"
+            >
                 <Link to="/allCountries/morocco">
                     <Card className={classes.root}>
                         <CardActionArea>

@@ -1,38 +1,76 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import {
     Button,
     Typography,
     Container,
-    Card,
-    CardMedia,
     makeStyles,
+    Link,
 } from "@material-ui/core";
 
 const useStyles = makeStyles({
-    root: {
-        margin: 0,
+    Video: {
+        height: "100%",
     },
-    media: {
-        height: 450,
+    Container: {
+        position: "relative",
+        width: "100%",
+        minHeight: 300,
+        maxHeight: 800,
+        overflow: "hidden",
+        margin: 0,
+        padding: 0,
+    },
+    Content: {
+        position: "absolute",
+        top: 0,
+        padding: 0,
+        color: "white",
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        alignItems: "center",
+        backgroundColor: "rgba(0,0,0,0.3)",
+    },
+    SubContent: {
+        textAlign: "center",
+        padding: 10,
+    },
+    Button: {
+        marginTop: 15,
+        color: "white",
+        border: "white",
+    },
+    Link: {
+        color: "whitesmoke",
     },
 });
 
 export default function Welcome() {
     const classes = useStyles();
     return (
-        <Container className="welcomecover">
-            <Card>
-                <CardMedia
-                    className={classes.media}
-                    image="/surfers.jpg"
-                    title="Surfers"
-                />
-                <Typography variant="h2">Surf's up</Typography>
-                <Button>
-                    <Link to="/allCountries">Find your surf paradise</Link>{" "}
-                </Button>
-            </Card>
+        <Container className={classes.Container}>
+            <video
+                className={classes.Video}
+                autoPlay
+                loop
+                muted
+                src="/backgroundVideo.mp4"
+            />
+            <Container className={classes.Content}>
+                <Container className={classes.SubContent}>
+                    <Typography variant="h2">Surf's up</Typography>
+                    <Button color="secondary" className={classes.Button}>
+                        <Link
+                            className={classes.Link}
+                            color="primary"
+                            underline="none"
+                            href="/allCountries"
+                        >
+                            Find your surf paradise
+                        </Link>{" "}
+                    </Button>
+                </Container>
+            </Container>
         </Container>
     );
 }

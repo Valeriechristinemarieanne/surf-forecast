@@ -34,13 +34,12 @@ app.get("/server/allCountries/:country/:surfspot", (req, res) => {
         return item.name.toLowerCase() == surfspot.toLowerCase();
     });
 
-    console.log("selectedSurfspot", selectedSurfspot);
+    /* console.log("selectedSurfspot", selectedSurfspot); */
     res.json(selectedSurfspot);
 });
 
 app.get("/server/allCountries/:country", (req, res) => {
     console.log("req.params:", req.params);
-    /* const { country } = req.params; */
     const { country } = req.params;
 
     const selectedCountry = surfspots.find((item) => {

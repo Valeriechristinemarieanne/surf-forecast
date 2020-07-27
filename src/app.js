@@ -3,7 +3,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 
 import welcome from "./welcome";
 import allCountries from "./allCountries";
-import country from "./country";
+import Country from "./country";
 import morocco from "./morocco";
 import portugal from "./portugal";
 import spain from "./spain";
@@ -18,7 +18,7 @@ export default function App() {
                 <Route
                     exact
                     path="/all/countries/country"
-                    component={country}
+                    component={Country}
                 />
                 <Route exact path="/allCountries/morocco" component={morocco} />
                 <Route exact path="/allCountries/spain" component={spain} />
