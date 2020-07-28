@@ -42,7 +42,7 @@ const useStyles = makeStyles({
         padding: 10,
     },
     h1: {
-        letterSpacing: 9,
+        letterSpacing: 6,
     },
     Button: {
         marginTop: 15,

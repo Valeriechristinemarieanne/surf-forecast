@@ -11,6 +11,7 @@ import {
     makeStyles,
     Breadcrumbs,
     Link,
+    Divider,
 } from "@material-ui/core";
 
 const useStyles = makeStyles({
@@ -29,19 +30,26 @@ const useStyles = makeStyles({
     h4: {
         paddingTop: 30,
         paddingLeft: 50,
-        letterSpacing: 6,
+        letterSpacing: 2,
+    },
+    h5: {
+        paddingTop: 30,
+        paddingLeft: 45,
+        letterSpacing: 2,
     },
     Subtitle: {
         paddingTop: 30,
         paddingLeft: 50,
         paddingRight: 50,
+        paddingBottom: 30,
     },
 });
 
 export default function allCountries() {
     const classes = useStyles();
     return (
-        <Container>
+        <Container disableGutters>
+            <img className="countryimage" src="/surfingaroundtheworld.jpg" />
             <Container className={classes.BreadcrumbsContainer}>
                 <Breadcrumbs aria-label="breadcrumb">
                     <Link color="inherit" href="/">
@@ -67,7 +75,14 @@ export default function allCountries() {
                 waters are oh so very blue, clear and, believe it or not, even
                 warm too!
             </Typography>
-
+            <Container className={classes.DividerContainer}>
+                <Divider variant="middle" />
+            </Container>
+            <Container className={classes.SearchContainer}>
+                <Typography className={classes.h5} gutterBottom variant="h5">
+                    Surfing in Europe & Africa
+                </Typography>
+            </Container>
             <Grid
                 container
                 direction="row"

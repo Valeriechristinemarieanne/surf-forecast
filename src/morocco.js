@@ -25,9 +25,15 @@ const useStyles = makeStyles({
     h4: {
         paddingTop: 30,
         paddingLeft: 50,
+        letterSpacing: 2,
+    },
+    h5: {
+        paddingLeft: 45,
+        letterSpacing: 2,
     },
     h6: {
         paddingLeft: 50,
+        letterSpacing: 2,
     },
     Subtitle: {
         paddingTop: 30,
@@ -78,23 +84,27 @@ export default function morocco() {
                     Atlantic's swells make it an attractive surfing destination,
                     especially given it's close proximity to Europe. Morocco
                     delivers her most tasty waves during fall, winter and
-                    spring. The land of the right-hand point break. From a
-                    surfer’s standpoint, the Iberian Peninsula has it all. And
-                    Portugal takes the prize! Its outstanding surf culture,
-                    authentic charm, the cute little whitewashed villages all
-                    along its coast, great food, and world-class waves draw an
-                    international crowd of surfers. Notwithstanding the fact
-                    that it’s one of the best places on the planet to learn to
-                    surf, with numerous surf camps and mellow waves to practice
-                    on.
+                    spring. The Moroccan coast itself is absolutely humongous!
+                    Morocco has a 1,835 kilometers long coastline with ideal
+                    surfing conditions. Morocco receives thousands of surfers
+                    every winter looking for the best surf resorts in Morocco.
+                    The Atlantic coastline of Morocco is fantastic for surfing
+                    and most beaches are easily accessed either by public
+                    transport or with your own vehicle. If you’re planning to be
+                    in Morocco for a couple of weeks, the following list of
+                    Morocco surf spots will help you plan your trip. I’ve listed
+                    them from the southernmost destination, Agadir to the surf
+                    spots located farther north along the coast. I’ve also
+                    included Dakhla to the list of best surfing spots in
+                    Morocco.
                 </Typography>
             </Container>
             <Container className={classes.DividerContainer}>
                 <Divider variant="middle" />
             </Container>
             <Container className={classes.SearchContainer}>
-                <Typography className={classes.h6} gutterBottom variant="h6">
-                    Find your perfect surf spot in Morrocco
+                <Typography className={classes.h5} gutterBottom variant="h5">
+                    Surfing spots
                 </Typography>
             </Container>
             <Grid
@@ -132,7 +142,7 @@ export default function morocco() {
                                 title="Imsouane"
                             />
                             <CardContent>
-                                <Typography variant="h5">Imsouane </Typography>
+                                <Typography variant="h5">Imsouane</Typography>
                                 <Typography variant="body2" component="p">
                                     A smooth longboard wave that peels over soft
                                     sand for 300 meters.
@@ -220,21 +230,6 @@ export default function morocco() {
                     </Card>
                 </Link>
             </Grid>
-
-            <Typography variant="subtitle1" className={classes.Subtitle}>
-                Morocco's pleasant climate and exposure to the North Atlantic's
-                swells make it an attractive surfing destination, especially
-                given it's close proximity to Europe. Morocco delivers her most
-                tasty waves during fall, winter and spring. The land of the
-                right-hand point break.
-            </Typography>
-            <Typography variant="subtitle1" className={classes.Subtitle}>
-                Morocco's pleasant climate and exposure to the North Atlantic's
-                swells make it an attractive surfing destination, especially
-                given it's close proximity to Europe. Morocco delivers her most
-                tasty waves during fall, winter and spring. The land of the
-                right-hand point break.
-            </Typography>
         </Container>
     );
 }
