@@ -20,9 +20,7 @@ import { List, ListItem } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
     Container: {
-        paddingTop: 50,
         paddingLeft: 50,
-        paddingBottom: 30,
     },
     root: {
         width: 350,
@@ -42,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function ForeCastInfo() {
+export default function SurfGearInfo() {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
 
@@ -54,9 +52,7 @@ export default function ForeCastInfo() {
         <Container className={classes.Container}>
             <Card className={classes.root}>
                 <CardActions disableSpacing>
-                    <Typography variant="body1">
-                        HOW TO READ A SURF REPORT
-                    </Typography>
+                    <Typography variant="body1">SURF GEAR INFO</Typography>
                     <IconButton
                         className={clsx(classes.expand, {
                             [classes.expandOpen]: expanded,
@@ -74,8 +70,14 @@ export default function ForeCastInfo() {
                         <List>
                             <ListItem>
                                 <Typography variant="caption" component="p">
-                                    🌊 Wave Height: Significant Height of
-                                    combined wind and swell waves in meters{" "}
+                                    Wetsuit – If you’re planning on surfing in
+                                    the UK during the summer or winter then a
+                                    wetsuit is going to be needed to maintain
+                                    any sense of feeling in your extremities.
+                                    Get down your local watersports retailer and
+                                    get the guys in the know to fit you up as
+                                    the correct sizing of a wettie is crucial to
+                                    its function.
                                 </Typography>
                             </ListItem>
                         </List>
@@ -83,16 +85,30 @@ export default function ForeCastInfo() {
                         <List>
                             <ListItem>
                                 <Typography variant="caption" component="p">
-                                    ⏲ Wave Period: Period of combined wind and
-                                    swell waves in seconds
+                                    Leash – A leash or leg rope is basically a
+                                    long lead that attaches from your ankle to
+                                    the back of the board to prevent you from
+                                    being separated. They are at least as long
+                                    as the length of the board so that if you
+                                    wipeout it’ll be out of the way by the time
+                                    you surface but close enough for you to hope
+                                    back on quickly before the next wave comes.
                                 </Typography>
                             </ListItem>
                         </List>
                         <List>
                             <ListItem>
                                 <Typography variant="caption" component="p">
-                                    🌬 Wind Speed: Speed of wind at 10m above sea
-                                    level in meters per second.
+                                    Board - There are 3 main types of board to
+                                    choose from when surfing. Only 2 of these
+                                    are really suitable for the beginner. Foam,
+                                    boards which are generally blue and yellow
+                                    are the most forgiving surfboard to start on
+                                    and can be rented at most surf beaches.
+                                    Although they are the most forgiving, they
+                                    also have limited suitability for the
+                                    improving beginner due to their very basic
+                                    design.
                                 </Typography>
                             </ListItem>
                         </List>

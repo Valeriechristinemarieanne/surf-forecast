@@ -17,10 +17,12 @@ import {
 } from "@material-ui/core";
 
 import ForeCastInfo from "./forecastinfo";
+import SurfGearInfo from "./surfgearinfo";
+import SurfEtiquette from "./surfetiquette";
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        width: 600,
+        width: 800,
         maxHeight: 450,
         margin: 30,
     },
@@ -37,9 +39,12 @@ const useStyles = makeStyles((theme) => ({
         paddingTop: 30,
         paddingLeft: 50,
     },
+    h5: {
+        paddingBottom: 0,
+    },
     h6: {
-        paddingTop: 30,
-        paddingLeft: 80,
+        paddingTop: 50,
+        paddingLeft: 15,
     },
     Subtitle: {
         paddingTop: 30,
@@ -48,11 +53,18 @@ const useStyles = makeStyles((theme) => ({
         paddingBottom: 30,
         maxWidth: "90%",
     },
-    Table: {
-        maxWidth: 800,
-        margin: 30,
+    forecastContainer: {
+        display: "flex",
+        flexDirection: "row",
     },
-    tableContainer: {
+    InfoContainer: {
+        display: "flex",
+        flexDirection: "column",
+    },
+    Table: {
+        width: 700,
+    },
+    allTables: {
         paddingLeft: 50,
     },
 }));
@@ -297,210 +309,261 @@ export default function Surfspot(props) {
             </Container>
             <Container>
                 <Typography className={classes.Subtitle} variant="h5">
-                    Your Forecast for {surfspot}
+                    Surf Conditions
                 </Typography>{" "}
             </Container>
-            <ForeCastInfo />
-            <Typography className={classes.h6} variant="h6">
-                Your forecast for {date}
-            </Typography>
-            <TableContainer className={classes.tableContainer}>
-                <Table className={classes.Table}>
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>
-                                <Typography variant="h6">
-                                    ☀️ {surfState.dayOne.lunchAirTemperature} °C
-                                    🌫️ {surfState.dayOne.lunchWaterTemperature}{" "}
-                                    °C
-                                </Typography>
-                            </TableCell>
-                            <TableCell>Wave Height</TableCell>
-                            <TableCell>Wave Period</TableCell>
-                            <TableCell>Wind Speed</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        <TableRow>
-                            <TableCell component="th" scope="row">
-                                Morning Session
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayOne.morningWaveHeight}{" "}
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayOne.morningWavePeriod}
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayOne.morningWindSpeed}
-                            </TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell component="th" scope="row">
-                                Lunch Session
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayOne.lunchWaveHeight}{" "}
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayOne.lunchWavePeriod}
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayOne.lunchWindSpeed}
-                            </TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell component="th" scope="row">
-                                After Work Session
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayOne.eveningWaveHeight}{" "}
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayOne.eveningWavePeriod}
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayOne.eveningWindSpeed}
-                            </TableCell>
-                        </TableRow>
-                    </TableBody>
-                </Table>
-            </TableContainer>
 
-            <Typography className={classes.h6} variant="h6">
-                Your forecast for {datetomorrow}
-            </Typography>
+            <Container className={classes.forecastContainer}>
+                <Container className={classes.allTables}>
+                    <Typography className={classes.h6} variant="h5">
+                        {date}
+                    </Typography>
+                    <TableContainer className={classes.tableContainer}>
+                        <Table className={classes.Table}>
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell>
+                                        <Typography>
+                                            ☀️{" "}
+                                            {
+                                                surfState.dayOne
+                                                    .lunchAirTemperature
+                                            }{" "}
+                                            °C 🌫️{" "}
+                                            {
+                                                surfState.dayOne
+                                                    .lunchWaterTemperature
+                                            }{" "}
+                                            °C
+                                        </Typography>
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        Wave Height
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        Wave Period
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        Wind Speed
+                                    </TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                <TableRow>
+                                    <TableCell component="th" scope="row">
+                                        Morning Session
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        {surfState.dayOne.morningWaveHeight}{" "}
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        {surfState.dayOne.morningWavePeriod}
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        {surfState.dayOne.morningWindSpeed}
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell component="th" scope="row">
+                                        Lunch Session
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        {surfState.dayOne.lunchWaveHeight}{" "}
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        {surfState.dayOne.lunchWavePeriod}
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        {surfState.dayOne.lunchWindSpeed}
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell component="th" scope="row">
+                                        After Work Session
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        {surfState.dayOne.eveningWaveHeight}{" "}
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        {surfState.dayOne.eveningWavePeriod}
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        {surfState.dayOne.eveningWindSpeed}
+                                    </TableCell>
+                                </TableRow>
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
 
-            <TableContainer className={classes.tableContainer}>
-                <Table className={classes.Table}>
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>
-                                <Typography variant="h6">
-                                    ☀️ {surfState.dayTwo.lunchAirTemperature} °C
-                                    🌫️ {surfState.dayTwo.lunchWaterTemperature}{" "}
-                                    °C
-                                </Typography>
-                            </TableCell>
+                    <Typography className={classes.h6} variant="h5">
+                        {datetomorrow}
+                    </Typography>
 
-                            <TableCell>Wave Height</TableCell>
-                            <TableCell>Wave Period</TableCell>
-                            <TableCell>Wind Speed</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        <TableRow>
-                            <TableCell component="th" scope="row">
-                                Morning Session
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayTwo.morningWaveHeight}{" "}
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayTwo.morningWavePeriod}
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayTwo.morningWindSpeed}
-                            </TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell component="th" scope="row">
-                                Lunch Session
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayTwo.lunchWaveHeight}{" "}
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayTwo.lunchWavePeriod}
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayTwo.lunchWindSpeed}
-                            </TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell component="th" scope="row">
-                                After Work Session
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayTwo.eveningWaveHeight}{" "}
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayTwo.eveningWavePeriod}
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayTwo.eveningWindSpeed}
-                            </TableCell>
-                        </TableRow>
-                    </TableBody>
-                </Table>
-            </TableContainer>
-            <Typography className={classes.h6} variant="h6">
-                Your forecast for {dateaftertomorrow}
-            </Typography>
-            <TableContainer className={classes.tableContainer}>
-                <Table className={classes.Table}>
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>
-                                <Typography variant="h6">
-                                    ☀️ {surfState.dayThree.lunchAirTemperature}{" "}
-                                    °C 🌫️{" "}
-                                    {surfState.dayThree.lunchWaterTemperature}{" "}
-                                    °C
-                                </Typography>
-                            </TableCell>
+                    <TableContainer className={classes.tableContainer}>
+                        <Table className={classes.Table}>
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell>
+                                        <Typography>
+                                            ☀️{" "}
+                                            {
+                                                surfState.dayTwo
+                                                    .lunchAirTemperature
+                                            }{" "}
+                                            °C 🌫️{" "}
+                                            {
+                                                surfState.dayTwo
+                                                    .lunchWaterTemperature
+                                            }{" "}
+                                            °C
+                                        </Typography>
+                                    </TableCell>
 
-                            <TableCell>Wave Height</TableCell>
-                            <TableCell>Wave Period</TableCell>
-                            <TableCell>Wind Speed</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        <TableRow>
-                            <TableCell component="th" scope="row">
-                                Morning Session
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayThree.morningWaveHeight}{" "}
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayThree.morningWavePeriod}
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayThree.morningWindSpeed}
-                            </TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell component="th" scope="row">
-                                Lunch Session
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayThree.lunchWaveHeight}{" "}
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayThree.lunchWavePeriod}
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayThree.lunchWindSpeed}
-                            </TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell component="th" scope="row">
-                                After Work Session
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayThree.eveningWaveHeight}{" "}
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayThree.eveningWavePeriod}
-                            </TableCell>
-                            <TableCell>
-                                {surfState.dayThree.eveningWindSpeed}
-                            </TableCell>
-                        </TableRow>
-                    </TableBody>
-                </Table>
-            </TableContainer>
+                                    <TableCell align="center">
+                                        Wave Height
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        Wave Period
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        Wind Speed
+                                    </TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                <TableRow>
+                                    <TableCell component="th" scope="row">
+                                        Morning Session
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        {surfState.dayTwo.morningWaveHeight}{" "}
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        {surfState.dayTwo.morningWavePeriod}
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        {surfState.dayTwo.morningWindSpeed}
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell component="th" scope="row">
+                                        Lunch Session
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        {surfState.dayTwo.lunchWaveHeight}{" "}
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        {surfState.dayTwo.lunchWavePeriod}
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        {surfState.dayTwo.lunchWindSpeed}
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell component="th" scope="row">
+                                        After Work Session
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        {surfState.dayTwo.eveningWaveHeight}{" "}
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        {surfState.dayTwo.eveningWavePeriod}
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        {surfState.dayTwo.eveningWindSpeed}
+                                    </TableCell>
+                                </TableRow>
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                    <Typography className={classes.h6} variant="h5">
+                        {dateaftertomorrow}
+                    </Typography>
+                    <TableContainer className={classes.tableContainer}>
+                        <Table className={classes.Table}>
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell>
+                                        <Typography>
+                                            ☀️{" "}
+                                            {
+                                                surfState.dayThree
+                                                    .lunchAirTemperature
+                                            }{" "}
+                                            °C 🌫️{" "}
+                                            {
+                                                surfState.dayThree
+                                                    .lunchWaterTemperature
+                                            }{" "}
+                                            °C
+                                        </Typography>
+                                    </TableCell>
+
+                                    <TableCell align="center">
+                                        Wave Height
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        Wave Period
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        Wind Speed
+                                    </TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                <TableRow>
+                                    <TableCell component="th" scope="row">
+                                        Morning Session
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        {surfState.dayThree.morningWaveHeight}{" "}
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        {surfState.dayThree.morningWavePeriod}
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        {surfState.dayThree.morningWindSpeed}
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell component="th" scope="row">
+                                        Lunch Session
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        {surfState.dayThree.lunchWaveHeight}{" "}
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        {surfState.dayThree.lunchWavePeriod}
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        {surfState.dayThree.lunchWindSpeed}
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell component="th" scope="row">
+                                        After Work Session
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        {surfState.dayThree.eveningWaveHeight}{" "}
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        {surfState.dayThree.eveningWavePeriod}
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        {surfState.dayThree.eveningWindSpeed}
+                                    </TableCell>
+                                </TableRow>
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                </Container>
+                <Container className={classes.InfoContainer}>
+                    {" "}
+                    <ForeCastInfo />
+                    <SurfGearInfo />
+                    <SurfEtiquette />
+                </Container>
+            </Container>
         </Container>
     );
 }
