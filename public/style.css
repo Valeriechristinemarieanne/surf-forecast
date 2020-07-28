@@ -9,6 +9,7 @@ body {
 /* Welcome page */
 .maincontainer {
     background-color: white;
+    overflow: hidden;
 }
 
 .welcomecover {

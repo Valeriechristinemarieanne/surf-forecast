@@ -16,6 +16,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import { List, ListItem } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
     Container: {
@@ -67,10 +68,40 @@ export default function ForeCastInfo() {
 
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
                     <CardContent>
-                        <Typography>☀️ </Typography>
-                        <Typography>🌫️</Typography>
                         <Typography>Wave Height</Typography>
+                        <List>
+                            <ListItem>
+                                <Typography variant="caption" component="p">
+                                    {" "}
+                                    0.00 - 1.00 Beginner
+                                </Typography>
+                                <Typography variant="caption" component="p">
+                                    {" "}
+                                    1.00 - 2.00 Intermediate
+                                </Typography>
+                                <Typography variant="caption" component="p">
+                                    {" "}
+                                    from 2.00 Advanced
+                                </Typography>
+                            </ListItem>
+                        </List>
                         <Typography>Wave Period</Typography>
+                        <List>
+                            <ListItem>
+                                <Typography variant="caption" component="p">
+                                    {" "}
+                                    0.05 - 1.00 Beginner
+                                </Typography>
+                                <Typography variant="caption" component="p">
+                                    {" "}
+                                    1.00 - 2.00 Intermediate
+                                </Typography>
+                                <Typography variant="caption" component="p">
+                                    {" "}
+                                    from 2.00 Advanced
+                                </Typography>
+                            </ListItem>
+                        </List>
                         <Typography>Wind Speed</Typography>
                     </CardContent>
                 </Collapse>

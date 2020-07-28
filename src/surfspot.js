@@ -150,6 +150,25 @@ export default function Surfspot(props) {
     const [surfspot, setSurfspot] = useState("");
     const [description, setDescription] = useState("");
     const [image, setImage] = useState("");
+    const today = new Date();
+    const date =
+        today.getDate() +
+        "-" +
+        (today.getMonth() + 1) +
+        "-" +
+        today.getFullYear();
+
+    const tomorrow = today.getDate() + 1;
+    const datetomorrow =
+        tomorrow + "-" + (today.getMonth() + 1) + "-" + today.getFullYear();
+
+    const aftertomorrow = today.getDate() + 2;
+    const dateaftertomorrow =
+        aftertomorrow +
+        "-" +
+        (today.getMonth() + 1) +
+        "-" +
+        today.getFullYear();
 
     const [surfState, dispatchSurfState] = useReducer(reducer, {
         dayOne: {
@@ -292,10 +311,10 @@ export default function Surfspot(props) {
                 </Typography>{" "}
             </Container>
             <ForeCastInfo />
+            <Typography variant="h6">Your forecast for {date}</Typography>
             <TableContainer className={classes.tableContainer}>
                 <Table className={classes.Table}>
                     <TableHead>
-                        {/* <Typography variant="h6">T O D A Y</Typography> */}
                         <TableRow>
                             <TableCell>
                                 <Typography variant="h6">
@@ -355,10 +374,14 @@ export default function Surfspot(props) {
                     </TableBody>
                 </Table>
             </TableContainer>
+
+            <Typography variant="h6">
+                Your forecast for {datetomorrow}
+            </Typography>
+
             <TableContainer className={classes.tableContainer}>
                 <Table className={classes.Table}>
                     <TableHead>
-                        {/* <Typography variant="h6">T O M O R R O W</Typography> */}
                         <TableRow>
                             <TableCell>
                                 <Typography variant="h6">
@@ -419,12 +442,12 @@ export default function Surfspot(props) {
                     </TableBody>
                 </Table>
             </TableContainer>
+            <Typography variant="h6">
+                Your forecast for {dateaftertomorrow}
+            </Typography>
             <TableContainer className={classes.tableContainer}>
                 <Table className={classes.Table}>
                     <TableHead>
-                        {/*  <Typography variant="h6">
-                            A F T E R {""}T O M O R R O W
-                        </Typography> */}
                         <TableRow>
                             <TableCell>
                                 <Typography variant="h6">

@@ -19,12 +19,17 @@ const useStyles = makeStyles({
         maxHeight: 450,
         margin: 30,
     },
+    BreadcrumbsContainer: {
+        paddingTop: 30,
+        paddingLeft: 50,
+    },
     media: {
         height: 180,
     },
     h4: {
         paddingTop: 30,
         paddingLeft: 50,
+        letterSpacing: 6,
     },
     Subtitle: {
         paddingTop: 30,
@@ -37,16 +42,17 @@ export default function allCountries() {
     const classes = useStyles();
     return (
         <Container>
-            <Breadcrumbs aria-label="breadcrumb">
-                <Link color="inherit" href="/">
-                    Home
-                </Link>
-                <Typography color="textPrimary">Surfing in Europe</Typography>
-            </Breadcrumbs>
-            {/* <Country /> */}
+            <Container className={classes.BreadcrumbsContainer}>
+                <Breadcrumbs aria-label="breadcrumb">
+                    <Link color="inherit" href="/">
+                        Home
+                    </Link>
+                    <Typography color="textPrimary">
+                        Surfing around the World
+                    </Typography>
+                </Breadcrumbs>
+            </Container>
 
-            {/*  <Header />
-            </Container>  */}
             <Typography className={classes.h4} gutterBottom variant="h4">
                 Surfing around the World
             </Typography>

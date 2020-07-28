@@ -64,7 +64,7 @@ export default function morocco() {
                         Home
                     </Link>
                     <Link underline="none" color="inherit" href="/allCountries">
-                        Surfing in Europe
+                        Surfing around the World
                     </Link>
                     <Typography color="textPrimary">Morocco</Typography>
                 </Breadcrumbs>

@@ -10,8 +10,8 @@ import createSpacing from "@material-ui/core/styles/createSpacing";
 
 const useStyles = makeStyles({
     Video: {
-        height: "100%",
-        overflow: "hidden",
+        width: "100vw",
+        objectFit: "contain",
     },
     Container: {
         position: "relative",
@@ -20,6 +20,7 @@ const useStyles = makeStyles({
         maxHeight: 800,
         margin: 0,
         padding: 0,
+        overflow: "hidden",
     },
     Content: {
         position: "absolute",
@@ -36,6 +37,9 @@ const useStyles = makeStyles({
     SubContent: {
         textAlign: "center",
         padding: 10,
+    },
+    h1: {
+        letterSpacing: 9,
     },
     Button: {
         marginTop: 15,
@@ -59,7 +63,7 @@ export default function Welcome() {
             />
             <Container className={classes.Content}>
                 <Container className={classes.SubContent}>
-                    <Typography variant="h1" letterSpacing={2}>
+                    <Typography variant="h1" className={classes.h1}>
                         Surf's up
                     </Typography>
                     <Button color="secondary" className={classes.Button}>
