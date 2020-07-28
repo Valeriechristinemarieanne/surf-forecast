@@ -68,7 +68,11 @@ export default function ForeCastInfo() {
 
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
                     <CardContent>
-                        <Typography>Wave Height</Typography>
+                        <Typography>
+                            Wave Height: Significant Height of combined wind and
+                            swell waves in meters{" "}
+                        </Typography>
+
                         <List>
                             <ListItem>
                                 <Typography variant="caption" component="p">
@@ -85,7 +89,10 @@ export default function ForeCastInfo() {
                                 </Typography>
                             </ListItem>
                         </List>
-                        <Typography>Wave Period</Typography>
+                        <Typography>
+                            Wave Period: Period of combined wind and swell waves
+                            in seconds
+                        </Typography>
                         <List>
                             <ListItem>
                                 <Typography variant="caption" component="p">
@@ -102,7 +109,10 @@ export default function ForeCastInfo() {
                                 </Typography>
                             </ListItem>
                         </List>
-                        <Typography>Wind Speed</Typography>
+                        <Typography>
+                            Wind Speed: Speed of wind at 10m above sea level in
+                            meters per second.
+                        </Typography>
                     </CardContent>
                 </Collapse>
             </Card>

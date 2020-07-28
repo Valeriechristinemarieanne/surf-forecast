@@ -5,16 +5,19 @@ import {
     Container,
     makeStyles,
     Link,
+    border,
+    borderColor,
 } from "@material-ui/core";
-import createSpacing from "@material-ui/core/styles/createSpacing";
 
 const useStyles = makeStyles({
     Video: {
         width: "100vw",
         objectFit: "contain",
+        overflow: "hidden",
+        position: "fixed",
     },
     Container: {
-        position: "relative",
+        position: "absolute",
         width: "100%",
         minHeight: 300,
         maxHeight: 800,
@@ -23,7 +26,7 @@ const useStyles = makeStyles({
         overflow: "hidden",
     },
     Content: {
-        position: "absolute",
+        position: "fixed",
         top: 0,
         padding: 0,
         color: "white",
@@ -59,8 +62,10 @@ export default function Welcome() {
                 autoPlay
                 loop
                 muted
+                width="1280"
                 src="/backgroundVideo.mp4"
             />
+
             <Container className={classes.Content}>
                 <Container className={classes.SubContent}>
                     <Typography variant="h1" className={classes.h1}>

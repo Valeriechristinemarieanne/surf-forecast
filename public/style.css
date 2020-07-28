@@ -9,11 +9,22 @@ body {
 /* Welcome page */
 .maincontainer {
     background-color: white;
+    /*  overflow: hidden;
+    width: 100vw;
+    height: 100vh; */
+}
+
+.videocontainer {
     overflow: hidden;
 }
 
 .welcomecover {
     text-align: center;
+}
+
+.contentborder {
+    border: 2px solid white;
+    z-index: 0;
 }
 
 /* allCountries page */

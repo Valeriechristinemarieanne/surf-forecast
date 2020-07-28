@@ -24,20 +24,6 @@ const useStyles = makeStyles((theme) => ({
         maxHeight: 450,
         margin: 30,
     },
-    media: {
-        height: 0,
-        paddingTop: "56.25%", // 16:9
-    },
-    expand: {
-        transform: "rotate(0deg)",
-        marginLeft: "auto",
-        transition: theme.transitions.create("transform", {
-            duration: theme.transitions.duration.shortest,
-        }),
-    },
-    expandOpen: {
-        transform: "rotate(180deg)",
-    },
     Container: {
         padding: 0,
         margin: 0,
@@ -50,6 +36,10 @@ const useStyles = makeStyles((theme) => ({
     h4: {
         paddingTop: 30,
         paddingLeft: 50,
+    },
+    h6: {
+        paddingTop: 30,
+        paddingLeft: 80,
     },
     Subtitle: {
         paddingTop: 30,
@@ -82,7 +72,7 @@ const reducer = (state, action) => {
                 lunchWaveHeight: action.data.hours[12].waveHeight.noaa,
                 lunchAirTemperature: action.data.hours[12].airTemperature.noaa,
                 lunchWaterTemperature:
-                    action.data.hours[12].waterTemperature.noaa,
+                    action.data.hours[12].waterTemperature.meto,
                 lunchWavePeriod: action.data.hours[12].wavePeriod.noaa,
                 lunchWindSpeed: action.data.hours[12].windSpeed.noaa,
                 eveningWaveHeight: action.data.hours[18].waveHeight.noaa,
@@ -99,13 +89,13 @@ const reducer = (state, action) => {
                 morningAirTemperature:
                     action.data.hours[30].airTemperature.noaa,
                 morningWaterTemperature:
-                    action.data.hours[30].waterTemperature.noaa,
+                    action.data.hours[30].waterTemperature.meto,
                 morningWavePeriod: action.data.hours[30].wavePeriod.noaa,
                 morningWindSpeed: action.data.hours[30].windSpeed.noaa,
                 lunchWaveHeight: action.data.hours[6].waveHeight.noaa,
                 lunchAirTemperature: action.data.hours[36].airTemperature.noaa,
                 lunchWaterTemperature:
-                    action.data.hours[36].waterTemperature.noaa,
+                    action.data.hours[36].waterTemperature.meto,
                 lunchWavePeriod: action.data.hours[36].wavePeriod.noaa,
                 lunchWindSpeed: action.data.hours[36].windSpeed.noaa,
                 eveningWaveHeight: action.data.hours[42].waveHeight.noaa,
@@ -122,13 +112,13 @@ const reducer = (state, action) => {
                 morningAirTemperature:
                     action.data.hours[54].airTemperature.noaa,
                 morningWaterTemperature:
-                    action.data.hours[54].waterTemperature.noaa,
+                    action.data.hours[54].waterTemperature.meto,
                 morningWavePeriod: action.data.hours[54].wavePeriod.noaa,
                 morningWindSpeed: action.data.hours[54].windSpeed.noaa,
                 lunchWaveHeight: action.data.hours[60].waveHeight.noaa,
                 lunchAirTemperature: action.data.hours[60].airTemperature.noaa,
                 lunchWaterTemperature:
-                    action.data.hours[60].waterTemperature.noaa,
+                    action.data.hours[60].waterTemperature.meto,
                 lunchWavePeriod: action.data.hours[60].wavePeriod.noaa,
                 lunchWindSpeed: action.data.hours[60].windSpeed.noaa,
                 eveningWaveHeight: action.data.hours[66].waveHeight.noaa,
@@ -153,21 +143,21 @@ export default function Surfspot(props) {
     const today = new Date();
     const date =
         today.getDate() +
-        "-" +
+        "/" +
         (today.getMonth() + 1) +
-        "-" +
+        "/" +
         today.getFullYear();
 
     const tomorrow = today.getDate() + 1;
     const datetomorrow =
-        tomorrow + "-" + (today.getMonth() + 1) + "-" + today.getFullYear();
+        tomorrow + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
 
     const aftertomorrow = today.getDate() + 2;
     const dateaftertomorrow =
         aftertomorrow +
-        "-" +
+        "/" +
         (today.getMonth() + 1) +
-        "-" +
+        "/" +
         today.getFullYear();
 
     const [surfState, dispatchSurfState] = useReducer(reducer, {
@@ -240,7 +230,7 @@ export default function Surfspot(props) {
                 setDescription(response.data.description);
                 setImage(response.data.image);
 
-                /* const lat = response.data.lat;
+                const lat = response.data.lat;
                 const lng = response.data.lng;
                 const params =
                     "waveHeight,airTemperature,waterTemperature,wavePeriod,windSpeed";
@@ -272,7 +262,7 @@ export default function Surfspot(props) {
                             type: "SURF_UPDATE",
                             data: jsonData,
                         });
-                    }); */
+                    });
             })
             .catch((err) => {
                 console.log("error: ", err);
@@ -311,7 +301,9 @@ export default function Surfspot(props) {
                 </Typography>{" "}
             </Container>
             <ForeCastInfo />
-            <Typography variant="h6">Your forecast for {date}</Typography>
+            <Typography className={classes.h6} variant="h6">
+                Your forecast for {date}
+            </Typography>
             <TableContainer className={classes.tableContainer}>
                 <Table className={classes.Table}>
                     <TableHead>
@@ -319,8 +311,8 @@ export default function Surfspot(props) {
                             <TableCell>
                                 <Typography variant="h6">
                                     ☀️ {surfState.dayOne.lunchAirTemperature} °C
-                                    🌫️
-                                    {surfState.dayOne.lunchWaterTemperature} °C
+                                    🌫️ {surfState.dayOne.lunchWaterTemperature}{" "}
+                                    °C
                                 </Typography>
                             </TableCell>
                             <TableCell>Wave Height</TableCell>
@@ -375,7 +367,7 @@ export default function Surfspot(props) {
                 </Table>
             </TableContainer>
 
-            <Typography variant="h6">
+            <Typography className={classes.h6} variant="h6">
                 Your forecast for {datetomorrow}
             </Typography>
 
@@ -386,8 +378,8 @@ export default function Surfspot(props) {
                             <TableCell>
                                 <Typography variant="h6">
                                     ☀️ {surfState.dayTwo.lunchAirTemperature} °C
-                                    🌫️
-                                    {surfState.dayTwo.lunchWaterTemperature} °C
+                                    🌫️ {surfState.dayTwo.lunchWaterTemperature}{" "}
+                                    °C
                                 </Typography>
                             </TableCell>
 
@@ -442,7 +434,7 @@ export default function Surfspot(props) {
                     </TableBody>
                 </Table>
             </TableContainer>
-            <Typography variant="h6">
+            <Typography className={classes.h6} variant="h6">
                 Your forecast for {dateaftertomorrow}
             </Typography>
             <TableContainer className={classes.tableContainer}>
@@ -452,10 +444,8 @@ export default function Surfspot(props) {
                             <TableCell>
                                 <Typography variant="h6">
                                     ☀️ {surfState.dayThree.lunchAirTemperature}{" "}
-                                    °C 🌫️
-                                    {
-                                        surfState.dayThree.lunchWaterTemperature
-                                    }{" "}
+                                    °C 🌫️{" "}
+                                    {surfState.dayThree.lunchWaterTemperature}{" "}
                                     °C
                                 </Typography>
                             </TableCell>
