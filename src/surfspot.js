@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     },
     h6: {
         paddingTop: 50,
-        paddingLeft: 15,
+        paddingLeft: 30,
     },
     Subtitle: {
         paddingTop: 30,
@@ -60,12 +60,21 @@ const useStyles = makeStyles((theme) => ({
     InfoContainer: {
         display: "flex",
         flexDirection: "column",
+        alignItems: "flex-start",
+    },
+    infodropper: {
+        position: "-webkit-sticky",
+        position: "sticky",
+        top: 30,
     },
     Table: {
-        width: 700,
+        width: 650,
+    },
+    tableContainer: {
+        paddingTop: 30,
     },
     allTables: {
-        paddingLeft: 50,
+        paddingLeft: 30,
     },
 }));
 
@@ -308,18 +317,16 @@ export default function Surfspot(props) {
                 <Divider variant="middle" />
             </Container>
             <Container>
-                <Typography className={classes.Subtitle} variant="h5">
-                    Surf Conditions
+                <Typography className={classes.h6} variant="h6">
+                    Your 3-day surf forecast for {surfspot}
                 </Typography>{" "}
             </Container>
 
             <Container className={classes.forecastContainer}>
                 <Container className={classes.allTables}>
-                    <Typography className={classes.h6} variant="h5">
-                        {date}
-                    </Typography>
                     <TableContainer className={classes.tableContainer}>
                         <Table className={classes.Table}>
+                            <caption>Your surf forecast for {date}</caption>
                             <TableHead>
                                 <TableRow>
                                     <TableCell>
@@ -351,7 +358,7 @@ export default function Surfspot(props) {
                             <TableBody>
                                 <TableRow>
                                     <TableCell component="th" scope="row">
-                                        Morning Session
+                                        Morning 6 AM
                                     </TableCell>
                                     <TableCell align="center">
                                         {surfState.dayOne.morningWaveHeight}{" "}
@@ -365,7 +372,7 @@ export default function Surfspot(props) {
                                 </TableRow>
                                 <TableRow>
                                     <TableCell component="th" scope="row">
-                                        Lunch Session
+                                        Noon 12 PM
                                     </TableCell>
                                     <TableCell align="center">
                                         {surfState.dayOne.lunchWaveHeight}{" "}
@@ -379,7 +386,7 @@ export default function Surfspot(props) {
                                 </TableRow>
                                 <TableRow>
                                     <TableCell component="th" scope="row">
-                                        After Work Session
+                                        Evening 6 PM
                                     </TableCell>
                                     <TableCell align="center">
                                         {surfState.dayOne.eveningWaveHeight}{" "}
@@ -394,13 +401,11 @@ export default function Surfspot(props) {
                             </TableBody>
                         </Table>
                     </TableContainer>
-
-                    <Typography className={classes.h6} variant="h5">
-                        {datetomorrow}
-                    </Typography>
-
                     <TableContainer className={classes.tableContainer}>
                         <Table className={classes.Table}>
+                            <caption>
+                                Your surf forecast for {datetomorrow}
+                            </caption>
                             <TableHead>
                                 <TableRow>
                                     <TableCell>
@@ -433,7 +438,7 @@ export default function Surfspot(props) {
                             <TableBody>
                                 <TableRow>
                                     <TableCell component="th" scope="row">
-                                        Morning Session
+                                        Morning 6 AM
                                     </TableCell>
                                     <TableCell align="center">
                                         {surfState.dayTwo.morningWaveHeight}{" "}
@@ -447,7 +452,7 @@ export default function Surfspot(props) {
                                 </TableRow>
                                 <TableRow>
                                     <TableCell component="th" scope="row">
-                                        Lunch Session
+                                        Noon 12 PM
                                     </TableCell>
                                     <TableCell align="center">
                                         {surfState.dayTwo.lunchWaveHeight}{" "}
@@ -461,7 +466,7 @@ export default function Surfspot(props) {
                                 </TableRow>
                                 <TableRow>
                                     <TableCell component="th" scope="row">
-                                        After Work Session
+                                        Evening 6 PM
                                     </TableCell>
                                     <TableCell align="center">
                                         {surfState.dayTwo.eveningWaveHeight}{" "}
@@ -476,11 +481,12 @@ export default function Surfspot(props) {
                             </TableBody>
                         </Table>
                     </TableContainer>
-                    <Typography className={classes.h6} variant="h5">
-                        {dateaftertomorrow}
-                    </Typography>
+
                     <TableContainer className={classes.tableContainer}>
                         <Table className={classes.Table}>
+                            <caption>
+                                Your surf forecast for {dateaftertomorrow}{" "}
+                            </caption>
                             <TableHead>
                                 <TableRow>
                                     <TableCell>
@@ -513,7 +519,7 @@ export default function Surfspot(props) {
                             <TableBody>
                                 <TableRow>
                                     <TableCell component="th" scope="row">
-                                        Morning Session
+                                        Morning 6 AM
                                     </TableCell>
                                     <TableCell align="center">
                                         {surfState.dayThree.morningWaveHeight}{" "}
@@ -527,7 +533,7 @@ export default function Surfspot(props) {
                                 </TableRow>
                                 <TableRow>
                                     <TableCell component="th" scope="row">
-                                        Lunch Session
+                                        Noon 12 PM
                                     </TableCell>
                                     <TableCell align="center">
                                         {surfState.dayThree.lunchWaveHeight}{" "}
@@ -541,7 +547,7 @@ export default function Surfspot(props) {
                                 </TableRow>
                                 <TableRow>
                                     <TableCell component="th" scope="row">
-                                        After Work Session
+                                        Evening 6 PM
                                     </TableCell>
                                     <TableCell align="center">
                                         {surfState.dayThree.eveningWaveHeight}{" "}
@@ -558,10 +564,12 @@ export default function Surfspot(props) {
                     </TableContainer>
                 </Container>
                 <Container className={classes.InfoContainer}>
-                    {" "}
-                    <ForeCastInfo />
-                    <SurfGearInfo />
-                    <SurfEtiquette />
+                    <Container className={classes.infodropper}>
+                        {" "}
+                        <ForeCastInfo />
+                        <SurfGearInfo />
+                        <SurfEtiquette />{" "}
+                    </Container>{" "}
                 </Container>
             </Container>
         </Container>

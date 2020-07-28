@@ -70,8 +70,8 @@ export default function SurfGearInfo() {
                         <List>
                             <ListItem>
                                 <Typography variant="caption" component="p">
-                                    Wetsuit – If you’re planning on surfing in
-                                    the UK during the summer or winter then a
+                                    🩱 Wetsuit – If you’re planning on surfing
+                                    in the UK during the summer or winter then a
                                     wetsuit is going to be needed to maintain
                                     any sense of feeling in your extremities.
                                     Get down your local watersports retailer and
@@ -85,8 +85,8 @@ export default function SurfGearInfo() {
                         <List>
                             <ListItem>
                                 <Typography variant="caption" component="p">
-                                    Leash – A leash or leg rope is basically a
-                                    long lead that attaches from your ankle to
+                                    🧷 Leash – A leash or leg rope is basically
+                                    a long lead that attaches from your ankle to
                                     the back of the board to prevent you from
                                     being separated. They are at least as long
                                     as the length of the board so that if you
@@ -99,8 +99,8 @@ export default function SurfGearInfo() {
                         <List>
                             <ListItem>
                                 <Typography variant="caption" component="p">
-                                    Board - There are 3 main types of board to
-                                    choose from when surfing. Only 2 of these
+                                    🏄 Board - There are 3 main types of board
+                                    to choose from when surfing. Only 2 of these
                                     are really suitable for the beginner. Foam,
                                     boards which are generally blue and yellow
                                     are the most forgiving surfboard to start on
