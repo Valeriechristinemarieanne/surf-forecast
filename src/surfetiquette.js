@@ -72,7 +72,7 @@ export default function SurfEtiquette() {
                         <List>
                             <ListItem>
                                 <Typography variant="caption" component="p">
-                                    Right of Way - The fundamental rule in
+                                    👉 Right of Way - The fundamental rule in
                                     surfing tells us that the surfer closest to
                                     the peak always gets priority. In other
                                     words, if you're paddling for a right-hand
@@ -86,9 +86,9 @@ export default function SurfEtiquette() {
                         <List>
                             <ListItem>
                                 <Typography variant="caption" component="p">
-                                    Don't Drop In - In surfing, the general rule
-                                    of thumb is: one man/woman, one wave. In
-                                    most cases, you can't have two surfers
+                                    🛑 Don't Drop In - In surfing, the general
+                                    rule of thumb is: one man/woman, one wave.
+                                    In most cases, you can't have two surfers
                                     riding the same wave in the same direction.
                                     When you disrespect the right-of-way rule,
                                     you're "burning" someone's wave and showing
@@ -106,8 +106,8 @@ export default function SurfEtiquette() {
                         <List>
                             <ListItem>
                                 <Typography variant="caption" component="p">
-                                    Don't Snake - Snaking is a very common, and
-                                    disrespectful behavior that can be seen,
+                                    🐍 Don't Snake - Snaking is a very common,
+                                    and disrespectful behavior that can be seen,
                                     especially, in crowded lineups. Paddling
                                     around one or more surfers to get closer to
                                     the peak and gain priority is rude conduct.
@@ -115,16 +115,6 @@ export default function SurfEtiquette() {
                                     do not paddle around other surfers always
                                     wanting to catch all waves. Be patient.
                                     There are waves for everyone.
-                                </Typography>
-                            </ListItem>
-                        </List>
-                        <List>
-                            <ListItem>
-                                <Typography variant="caption" component="p">
-                                    Don't Get in the Way - Paddle wide, not
-                                    through the peak, and stay in the water if
-                                    you got caught inside and a surfer is
-                                    enjoying his surf line.
                                 </Typography>
                             </ListItem>
                         </List>
