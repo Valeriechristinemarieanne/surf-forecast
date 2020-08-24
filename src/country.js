@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Typography, Container } from "@material-ui/core";
+import { Typography, Container, makeStyles } from "@material-ui/core";
+
+const useStyles = makeStyles(() => ({}));
 
 export default function Country(props) {
+    const classes = useStyles();
     const [country, setCountry] = useState("");
     const [countryImage, setCountryImage] = useState("");
     const [countryDescription, setCountryDescription] = useState("");
