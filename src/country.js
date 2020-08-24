@@ -18,13 +18,17 @@ export default function Country(props) {
                 setCountryImage(response.data.countryImage);
             })
             .catch((err) => {
-                console.log("error: ", err);
+                console.log("error in axios request to get country: ", err);
             });
     }, []);
 
     return (
         <Container>
             <Typography variant="h4">{country}</Typography>
+            <img className="countryimage" src={countryImage} />
+            <Typography className={classes.Subtitle} variant="subtitle1">
+                {countryDescription}
+            </Typography>
         </Container>
     );
 }

@@ -240,7 +240,7 @@ export default function Surfspot(props) {
     };
 
     useEffect(() => {
-        /* console.log("props.match.params: ", props.match.params); */
+        console.log("props.match.params: ", props.match.params);
         console.log("surfState", surfState);
         axios
             .get(

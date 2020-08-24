@@ -22,14 +22,8 @@ if (process.env.NODE_ENV != "production") {
 
 app.get("/server/allCountries/:country/:surfspot", (req, res) => {
     /* console.log("req.params:", req.params); */
-    /* const { country } = req.params; */
     const { surfspot } = req.params;
 
-    /* const selectedCountry = surfspots.find((item) => {
-        console.log("item.country: ", item.country);
-        console.log("country: ", country);
-        return item.country.toLowerCase() == country.toLowerCase();
-    }); */
     const selectedSurfspot = surfspots.find((item) => {
         return item.name.toLowerCase() == surfspot.toLowerCase();
     });
