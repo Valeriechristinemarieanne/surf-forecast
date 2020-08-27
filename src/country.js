@@ -1,8 +1,64 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Typography, Container, makeStyles } from "@material-ui/core";
+import {
+    Typography,
+    Card,
+    CardActionArea,
+    CardContent,
+    CardMedia,
+    Container,
+    Breadcrumbs,
+    Link,
+    makeStyles,
+    Grid,
+    Divider,
+} from "@material-ui/core";
 
-const useStyles = makeStyles(() => ({}));
+const useStyles = makeStyles(() => ({
+    root: {
+        maxWidth: 320,
+        maxHeight: 450,
+        margin: 30,
+    },
+    media: {
+        height: 180,
+    },
+    h4: {
+        paddingTop: 30,
+        paddingLeft: 50,
+        letterSpacing: 2,
+    },
+    h5: {
+        paddingLeft: 45,
+        letterSpacing: 2,
+    },
+    h6: {
+        paddingLeft: 50,
+        letterSpacing: 2,
+    },
+    Subtitle: {
+        paddingTop: 30,
+        paddingLeft: 50,
+        paddingRight: 50,
+        paddingBottom: 30,
+        maxWidth: "90%",
+    },
+    Container: {
+        display: "flex",
+        flexDirection: "row",
+        padding: 0,
+        margin: 0,
+        width: "100%",
+    },
+    BreadcrumbsContainer: {
+        paddingTop: 30,
+        paddingLeft: 50,
+    },
+    SearchContainer: {
+        paddingTop: 30,
+        paddingLeft: 50,
+    },
+}));
 
 export default function Country(props) {
     const classes = useStyles();
@@ -26,9 +82,20 @@ export default function Country(props) {
     }, []);
 
     return (
-        <Container>
-            <Typography variant="h4">{country}</Typography>
+        <Container disableGutters>
             <img className="countryimage" src={countryImage} />
+            <Container className={classes.BreadcrumbsContainer}>
+                <Breadcrumbs aria-label="breadcrumb">
+                    <Link underline="none" color="inherit" href="/">
+                        Home
+                    </Link>
+                    <Link underline="none" color="inherit" href="/allCountries">
+                        Surfing around the World
+                    </Link>
+                    <Typography color="textPrimary">{country}</Typography>
+                </Breadcrumbs>
+            </Container>
+            <Typography variant="h4">Surfing in {country}</Typography>
             <Typography className={classes.Subtitle} variant="subtitle1">
                 {countryDescription}
             </Typography>
