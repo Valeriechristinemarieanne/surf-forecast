@@ -1,6 +1,7 @@
 [
     {
         "name": "anchorpoint",
+        "id": 1,
         "displayname": "Anchor Point",
         "country": "Morocco",
         "countryImage": "",
@@ -12,6 +13,7 @@
     },
     {
         "displayname": "Imsouane",
+        "id": 2,
         "name": "imsouane",
         "country": "Morocco",
         "countryImage": "",
@@ -23,6 +25,7 @@
     },
     {
         "name": "devilsrock",
+        "id": 3,
         "displayname": "Devils Rock",
         "country": "Morocco",
         "countryImage": "",

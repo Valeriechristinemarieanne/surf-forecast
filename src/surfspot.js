@@ -20,7 +20,7 @@ import ForeCastInfo from "./forecastinfo";
 import SurfGearInfo from "./surfgearinfo";
 import SurfEtiquette from "./surfetiquette";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     root: {
         width: 800,
         maxHeight: 450,
@@ -64,7 +64,6 @@ const useStyles = makeStyles((theme) => ({
     },
     infodropper: {
         position: "-webkit-sticky",
-        position: "sticky",
         top: 30,
     },
     Table: {
@@ -234,10 +233,6 @@ export default function Surfspot(props) {
             eveningWindSpeed: "",
         },
     });
-    const [expanded, setExpanded] = React.useState(false);
-    const handleExpandClick = () => {
-        setExpanded(!expanded);
-    };
 
     useEffect(() => {
         console.log("props.match.params: ", props.match.params);
