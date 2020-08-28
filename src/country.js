@@ -62,7 +62,7 @@ const useStyles = makeStyles(() => ({
 
 export default function Country(props) {
     const classes = useStyles();
-    const [country, setCountry] = useState("");
+    const [displaycountryname, setCountry] = useState("");
     const [countryImage, setCountryImage] = useState("");
     const [countryDescription, setCountryDescription] = useState("");
 
@@ -72,7 +72,7 @@ export default function Country(props) {
         axios
             .get(`/server/allCountries/${props.match.params.country}`)
             .then((response) => {
-                setCountry(response.data.country);
+                setCountry(response.data.displaycountryname);
                 setCountryDescription(response.data.countryDescription);
                 setCountryImage(response.data.countryImage);
             })
@@ -92,10 +92,14 @@ export default function Country(props) {
                     <Link underline="none" color="inherit" href="/allCountries">
                         Surfing around the World
                     </Link>
-                    <Typography color="textPrimary">{country}</Typography>
+                    <Typography color="textPrimary">
+                        {displaycountryname}
+                    </Typography>
                 </Breadcrumbs>
             </Container>
-            <Typography variant="h4">Surfing in {country}</Typography>
+            <Typography className={classes.h4} gutterBottom variant="h4">
+                Surfing in {displaycountryname}
+            </Typography>
             <Typography className={classes.Subtitle} variant="subtitle1">
                 {countryDescription}
             </Typography>

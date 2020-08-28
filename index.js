@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const compression = require("compression");
 const surfspots = require("./surfspots.json");
+const countries = require("./countries.json");
 
 // My middleware
 app.use(express.static("./public"));
@@ -36,7 +37,7 @@ app.get("/server/allCountries/:country", (req, res) => {
     console.log("req.params:", req.params);
     const { country } = req.params;
 
-    const selectedCountry = surfspots.find((item) => {
+    const selectedCountry = countries.find((item) => {
         console.log("item.country: ", item.country);
         console.log("country: ", country);
         return item.country.toLowerCase() == country.toLowerCase();
