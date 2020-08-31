@@ -63,7 +63,7 @@ const useStyles = makeStyles(() => ({
         alignItems: "flex-start",
     },
     infodropper: {
-        position: "-webkit-sticky",
+        position: "sticky",
         top: 30,
     },
     Table: {

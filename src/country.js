@@ -60,7 +60,7 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-export default function Country(props, id) {
+export default function Country(props, { id }) {
     const classes = useStyles();
     const [displaycountryname, setCountry] = useState("");
     const [countryImage, setCountryImage] = useState("");
@@ -76,19 +76,19 @@ export default function Country(props, id) {
                 setCountry(response.data.displaycountryname);
                 setCountryDescription(response.data.countryDescription);
                 setCountryImage(response.data.countryImage);
+
+                axios
+                    .get(
+                        `/server/allCountries/${props.match.params.country}/${surfspot}`
+                    )
+                    .then((response) => {
+                        console.log("I am trying to get to the surfspot");
+                        console.log("response: ", response.data);
+                        setSurfspot(response.data);
+                    });
             })
             .catch((err) => {
                 console.log("error in axios request to get country: ", err);
-            });
-
-        axios
-            .get(
-                `/server/allCountries/${props.match.params.country}/${surfspots}`
-            )
-            .then((response) => {
-                console.log("I am trying to get to the surfspot");
-                console.log("response: ", response);
-                setSurfspot(response.data);
             });
     }, []);
 
@@ -138,7 +138,9 @@ export default function Country(props, id) {
                                 title="Anchorpoint"
                             />
                             <CardContent>
-                                <Typography variant="h5">{surfspot}</Typography>
+                                <Typography variant="h5">
+                                    {surfspot.name}
+                                </Typography>
                                 <Typography variant="body2" component="p">
                                     A steep take off. Powerful point break,
                                     which remains on a good day walk.
