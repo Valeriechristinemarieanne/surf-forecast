@@ -1,5 +1,5 @@
-import React from "react";
-import Country from "./country";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import {
     Typography,
     Container,
@@ -47,6 +47,25 @@ const useStyles = makeStyles({
 
 export default function allCountries() {
     const classes = useStyles();
+    const [allcountries, setAllCountries] = useState("");
+
+    useEffect(() => {
+        console.log("Trying to get data into my component");
+        axios
+            .get(`server/allCountries`)
+            .then((response) => {
+                console.log(
+                    "Still trying to get data, whats my response:",
+                    response.data[0].country
+                );
+                setAllCountries(response.data[0]);
+                console.log("allcountries:", allcountries);
+            })
+            .catch((err) => {
+                console.log("error in getting allCountries data: ", err);
+            });
+    }, []);
+
     return (
         <Container disableGutters>
             <img className="countryimage" src="/surfingaroundtheworld.jpg" />
