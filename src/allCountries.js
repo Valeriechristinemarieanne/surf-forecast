@@ -122,7 +122,10 @@ export default function allCountries() {
 
                 {allcountries.map((country) => (
                     <div className="mappedsurfspots" key={country.id}>
-                        <Link underline="none" href="/allCountries/morocco">
+                        <Link
+                            underline="none"
+                            href={"/allCountries/" + country.country}
+                        >
                             <Card className={classes.root}>
                                 <CardActionArea>
                                     <CardMedia
