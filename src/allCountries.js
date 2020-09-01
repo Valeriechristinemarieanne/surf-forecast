@@ -48,7 +48,7 @@ const useStyles = makeStyles({
 export default function allCountries() {
     const classes = useStyles();
     const [allcountries, setAllCountries] = useState("");
-
+    console.log("allcountries:", allcountries);
     useEffect(() => {
         console.log("Trying to get data into my component");
         axios
@@ -58,8 +58,8 @@ export default function allCountries() {
                     "Still trying to get data, whats my response:",
                     response.data[0].country
                 );
-                setAllCountries(response.data[0]);
-                console.log("allcountries:", allcountries);
+                setAllCountries(response.data);
+                /* console.log("allcountries:", allcountries); */
             })
             .catch((err) => {
                 console.log("error in getting allCountries data: ", err);
@@ -108,6 +108,18 @@ export default function allCountries() {
                 justify="center"
                 alignItems="center"
             >
+                {[{ allcountries }].map((country, index) => (
+                    <div className="mappedsurfspots" key={index}>
+                        <img
+                            className="mappedcountriesimg"
+                            src={country.countryimg}
+                        />
+                        <Typography variant="h5">
+                            {country.countrydisplayname}
+                        </Typography>
+                    </div>
+                ))}
+
                 <Link underline="none" href="/allCountries/morocco">
                     <Card className={classes.root}>
                         <CardActionArea>
