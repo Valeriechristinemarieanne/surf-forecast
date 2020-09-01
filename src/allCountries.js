@@ -47,7 +47,7 @@ const useStyles = makeStyles({
 
 export default function allCountries() {
     const classes = useStyles();
-    const [allcountries, setAllCountries] = useState("");
+    const [allcountries, setAllCountries] = useState([]);
     console.log("allcountries:", allcountries);
     useEffect(() => {
         console.log("Trying to get data into my component");
@@ -108,8 +108,8 @@ export default function allCountries() {
                 justify="center"
                 alignItems="center"
             >
-                {[{ allcountries }].map((country, index) => (
-                    <div className="mappedsurfspots" key={index}>
+                {/*  {allcountries.map((country, index) => (
+                    <div className="mappedsurfspots" key={country.id}>
                         <img
                             className="mappedcountriesimg"
                             src={country.countryimg}
@@ -118,28 +118,35 @@ export default function allCountries() {
                             {country.countrydisplayname}
                         </Typography>
                     </div>
+                ))} */}
+
+                {allcountries.map((country) => (
+                    <div className="mappedsurfspots" key={country.id}>
+                        <Link underline="none" href="/allCountries/morocco">
+                            <Card className={classes.root}>
+                                <CardActionArea>
+                                    <CardMedia
+                                        className={classes.media}
+                                        image={country.countryimg}
+                                        title="Surfing in Morocco"
+                                    />
+                                    <CardContent>
+                                        <Typography variant="h5">
+                                            {country.countrydisplayname}
+                                        </Typography>
+                                        <Typography
+                                            variant="body2"
+                                            component="p"
+                                        >
+                                            {country.countrydescriptionshort}
+                                        </Typography>
+                                    </CardContent>
+                                </CardActionArea>
+                            </Card>
+                        </Link>
+                    </div>
                 ))}
 
-                <Link underline="none" href="/allCountries/morocco">
-                    <Card className={classes.root}>
-                        <CardActionArea>
-                            <CardMedia
-                                className={classes.media}
-                                image="/Surfing-in-Morocco.jpg"
-                                title="Surfing in Morocco"
-                            />
-                            <CardContent>
-                                <Typography variant="h5">Morocco</Typography>
-                                <Typography variant="body2" component="p">
-                                    Whether you're looking for reelling ten foot
-                                    points, endless mellow six foot walls or the
-                                    perfect wave to learn on, Morocco hast it
-                                    all.
-                                </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                    </Card>
-                </Link>
                 <Link underline="none" href="/allCountries/portugal">
                     <Card className={classes.root}>
                         <CardActionArea>
