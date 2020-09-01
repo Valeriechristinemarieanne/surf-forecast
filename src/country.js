@@ -129,7 +129,7 @@ export default function Country(props, { id }) {
                 justify="center"
                 alignItems="center"
             >
-                <Link underline="none" href="/allCountries/morocco/:surfspot">
+                <Link underline="none" href="/allCountries/morocco/surfspot">
                     <Card className={classes.root}>
                         <CardActionArea>
                             <CardMedia
@@ -150,12 +150,13 @@ export default function Country(props, { id }) {
                     </Card>
                 </Link>
 
-                {[surfspot].map((spot) => (
-                    <div className="mappedsurfspots" key={[spot].id}>
+                {[surfspot].map((spot, index) => (
+                    <div className="mappedsurfspots" key={index}>
                         <img
                             className="mappedsurfspotsimg"
                             src={[spot].image}
                         />
+                        <Typography variant="h5">{spot.name}</Typography>
                     </div>
                 ))}
 
