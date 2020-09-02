@@ -127,15 +127,15 @@ export default function Country(props, { id }) {
                     <div className="mappedsurfspots" key={index}>
                         <Link
                             underline="none"
-                            href={"/allCountries/" + surfspot.surfspot}
+                            href={"/allCountries/" + surfspot.surfspotname}
                         >
                             <Card className={classes.root}>
                                 <CardActionArea>
-                                    {/*  <CardMedia
+                                    <CardMedia
                                         className={classes.media}
                                         image={surfspot.surfspotimg}
                                         title="Surfing"
-                                    /> */}
+                                    />
                                     <CardContent>
                                         <Typography variant="h5">
                                             {surfspot.surfspotdisplayname}
@@ -144,7 +144,7 @@ export default function Country(props, { id }) {
                                             variant="body2"
                                             component="p"
                                         >
-                                            {surfspot.surfspotdisplayname}
+                                            {surfspot.surfspotdescriptionshort}
                                         </Typography>
                                     </CardContent>
                                 </CardActionArea>
@@ -152,123 +152,6 @@ export default function Country(props, { id }) {
                         </Link>
                     </div>
                 ))}
-
-                <Link underline="none" href="/allCountries/morocco/anchorpoint">
-                    <Card className={classes.root}>
-                        <CardActionArea>
-                            <CardMedia
-                                className={classes.media}
-                                image="/anchorpoint.jpg"
-                                title="Anchorpoint"
-                            />
-                            <CardContent>
-                                <Typography variant="h5">
-                                    Anchor Point
-                                </Typography>
-                                <Typography variant="body2" component="p">
-                                    A steep take off. Powerful point break,
-                                    which remains on a good day walk.
-                                </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                    </Card>
-                </Link>
-                <Link underline="none" href="/allCountries/morocco/imsouane">
-                    <Card className={classes.root}>
-                        <CardActionArea>
-                            <CardMedia
-                                className={classes.media}
-                                image="/imsouane.jpg"
-                                title="Imsouane"
-                            />
-                            <CardContent>
-                                <Typography variant="h5">Imsouane</Typography>
-                                <Typography variant="body2" component="p">
-                                    A smooth longboard wave that peels over soft
-                                    sand for 300 meters.
-                                </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                    </Card>
-                </Link>
-                <Link underline="none" href="/allCountries/devilsrock">
-                    <Card className={classes.root}>
-                        <CardActionArea>
-                            <CardMedia
-                                className={classes.media}
-                                image="/devilsrock.jpg"
-                                title="Devils Rock"
-                            />
-                            <CardContent>
-                                <Typography variant="h5">
-                                    Devils Rock
-                                </Typography>
-                                <Typography variant="body2" component="p">
-                                    A tough name for a break each day can be
-                                    different. Right and left waves.
-                                </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                    </Card>
-                </Link>
-                <Link underline="none" href="/allCountries/panoramas">
-                    <Card className={classes.root}>
-                        <CardActionArea>
-                            <CardMedia
-                                className={classes.media}
-                                image="/panoramas.jpg"
-                                title="Panoramas"
-                            />
-                            <CardContent>
-                                <Typography variant="h5">Panoramas</Typography>
-                                <Typography variant="body2" component="p">
-                                    Could reasonably have some flow. But also
-                                    runs a nice long right.
-                                </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                    </Card>
-                </Link>
-                <Link underline="none" href="/allCountries/bananabeach">
-                    <Card className={classes.root}>
-                        <CardActionArea>
-                            <CardMedia
-                                className={classes.media}
-                                image="/bananabeach.jpg"
-                                title="Banana Beach"
-                            />
-                            <CardContent>
-                                <Typography variant="h5">
-                                    Banana Beach
-                                </Typography>
-                                <Typography variant="body2" component="p">
-                                    Here you will often find the beginners
-                                    because it is a relatively easy golf.
-                                </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                    </Card>
-                </Link>
-                <Link underline="none" href="/allCountries/killerpoint">
-                    <Card className={classes.root}>
-                        <CardActionArea>
-                            <CardMedia
-                                className={classes.media}
-                                image="/killerpoint.jpg"
-                                title="Killer Point"
-                            />
-                            <CardContent>
-                                <Typography variant="h5">
-                                    Killer Point
-                                </Typography>
-                                <Typography variant="body2" component="p">
-                                    A powerful wave. Which is higher than you
-                                    think.
-                                </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                    </Card>
-                </Link>
             </Grid>
         </Container>
     );
