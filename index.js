@@ -3,7 +3,12 @@ const app = express();
 const compression = require("compression");
 const surfspots = require("./surfspots.json");
 const countries = require("./countries.json");
-const { allCountries, selectedCountry, allSurfspots } = require("./db.js");
+const {
+    allCountries,
+    selectedCountry,
+    allSurfspots,
+    selectedSurfspot,
+} = require("./db.js");
 const { response } = require("express");
 
 // My middleware
@@ -34,19 +39,8 @@ app.get("/server/allCountries/", (req, res) => {
         });
 });
 
-app.get("/server/allCountries/:country/:surfspot", (req, res) => {
-    console.log("req.params:", req.params);
-    const { surfspot } = req.params;
-    const selectedSurfspot = surfspots.find((item) => {
-        return item.name.toLowerCase() == surfspot.toLowerCase();
-    });
-
-    console.log("selectedSurfspot", selectedSurfspot);
-    res.json(selectedSurfspot);
-});
-
 app.get("/server/allCountries/:country", (req, res) => {
-    console.log("req.params:", req.params);
+    console.log("req.params country:", req.params);
     const { country } = req.params;
 
     selectedCountry(country)
@@ -70,15 +64,23 @@ app.get("/server/allCountries/:country", (req, res) => {
         .catch((err) => {
             console.log("response from countries function: ", err);
         });
+});
 
-    /*  const selectedCountry = countries.find((item) => {
-        console.log("item.country: ", item.country);
-        console.log("country: ", country);
-        return item.country.toLowerCase() == country.toLowerCase();
-    });
- */
-    /* console.log("selectedCountry", selectedCountry);
-    res.json(selectedCountry); */
+app.get("/server/allCountries/:country/:surfspot", (req, res) => {
+    console.log("req.params surfspot:", req.params);
+    const { surfspot } = req.params;
+
+    selectedSurfspot(surfspot)
+        .then((result) => {
+            console.log("result from surfspot server route", result.rows);
+            console.log("result from surfspot server route", result.rows[0]);
+            const selectedsurfspot = result.rows[0].country;
+            console.log("just declared const", selectedsurfspot);
+            res.json(result.rows);
+        })
+        .catch((err) => {
+            console.log("response from surfspot function: ", err);
+        });
 });
 
 app.get("*", function (req, res) {

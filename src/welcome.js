@@ -5,8 +5,6 @@ import {
     Container,
     makeStyles,
     Link,
-    border,
-    borderColor,
 } from "@material-ui/core";
 
 const useStyles = makeStyles({

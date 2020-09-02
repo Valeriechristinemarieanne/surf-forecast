@@ -157,7 +157,7 @@ const reducer = (state, action) => {
 
 export default function Surfspot(props) {
     const classes = useStyles();
-    const [surfspot, setSurfspot] = useState("");
+    const [surfspotname, setSurfspot] = useState("");
     const [description, setDescription] = useState("");
     const [image, setImage] = useState("");
     const today = new Date();
@@ -235,16 +235,20 @@ export default function Surfspot(props) {
     });
 
     useEffect(() => {
-        console.log("props.match.params: ", props.match.params);
+        console.log("props.match.params: ", props.match.params.surfspot);
         console.log("surfState", surfState);
         axios
             .get(
                 `/server/allCountries/${props.match.params.country}/${props.match.params.surfspot}`
             )
             .then((response) => {
-                setSurfspot(response.data.displayname);
-                setDescription(response.data.description);
-                setImage(response.data.image);
+                console.log(
+                    "response.data",
+                    response.data[0].surfspotdisplayname
+                );
+                setSurfspot(response.data[0].surfspotdisplayname);
+                setDescription(response.data[0].surfspotdescriptionlong);
+                setImage(response.data[0].surfspotimg);
 
                 const lat = response.data.lat;
                 const lng = response.data.lng;
@@ -299,11 +303,11 @@ export default function Surfspot(props) {
                     <Link color="inherit" href="/allCountries/morocco">
                         Surfing in Morocco
                     </Link>
-                    <Typography color="textPrimary">{surfspot}</Typography>
+                    <Typography color="textPrimary">{surfspotname}</Typography>
                 </Breadcrumbs>
             </Container>
             <Typography className={classes.h4} gutterBottom variant="h4">
-                {surfspot}
+                {surfspotname}
             </Typography>
             <Typography className={classes.Subtitle} variant="subtitle1">
                 {description}
@@ -313,7 +317,7 @@ export default function Surfspot(props) {
             </Container>
             <Container>
                 <Typography className={classes.h6} variant="h6">
-                    Your 3-day surf forecast for {surfspot}
+                    Your 3-day surf forecast for {surfspotname}
                 </Typography>{" "}
             </Container>
 

@@ -127,7 +127,7 @@ export default function Country(props, { id }) {
                     <div className="mappedsurfspots" key={index}>
                         <Link
                             underline="none"
-                            href={"/allCountries/" + surfspot.surfspotname}
+                            href={`/allCountries/${surfspot.country}/${surfspot.surfspotname}`}
                         >
                             <Card className={classes.root}>
                                 <CardActionArea>

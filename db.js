@@ -31,5 +31,13 @@ exports.selectedCountry = (country) => {
     return db.query(`SELECT * FROM countries WHERE country=$1`, [country]);
 };
 
+//////// Display all surfspots from selected country \\\\\\\\\\\\\
+exports.selectedSurfspot = (surfspot) => {
+    console.log("selectedSurfspot query running");
+    return db.query(`SELECT * FROM surfspots WHERE surfspotname=$1`, [
+        surfspot,
+    ]);
+};
+
 /* WHERE country IN (SELECT * FROM surfspots */
 /* JOIN surfspots ON countries.country = surfspots.country  */
