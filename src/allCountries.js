@@ -108,18 +108,6 @@ export default function allCountries() {
                 justify="center"
                 alignItems="center"
             >
-                {/*  {allcountries.map((country, index) => (
-                    <div className="mappedsurfspots" key={country.id}>
-                        <img
-                            className="mappedcountriesimg"
-                            src={country.countryimg}
-                        />
-                        <Typography variant="h5">
-                            {country.countrydisplayname}
-                        </Typography>
-                    </div>
-                ))} */}
-
                 {allcountries.map((country) => (
                     <div className="mappedsurfspots" key={country.id}>
                         <Link
@@ -149,109 +137,6 @@ export default function allCountries() {
                         </Link>
                     </div>
                 ))}
-
-                <Link underline="none" href="/allCountries/portugal">
-                    <Card className={classes.root}>
-                        <CardActionArea>
-                            <CardMedia
-                                className={classes.media}
-                                image="/surfing-in-portugal.jpg"
-                                title="Surfing in Portugal"
-                            />
-                            <CardContent>
-                                <Typography variant="h5">Portugal </Typography>
-                                <Typography variant="body2" component="p">
-                                    Portugal has a very mild climate with solid
-                                    surf conditions, making it a popular surfing
-                                    destination for surfers from inside and
-                                    outside Europe.
-                                </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                    </Card>
-                </Link>
-                <Link underline="none" href="/allCountries/spain">
-                    <Card className={classes.root}>
-                        <CardActionArea>
-                            <CardMedia
-                                className={classes.media}
-                                image="/surfing-in-spain.jpg"
-                                title="Surfing in Spain"
-                            />
-                            <CardContent>
-                                <Typography variant="h5">Spain </Typography>
-                                <Typography variant="body2" component="p">
-                                    Spain has a lot going for it, an excellent
-                                    climate, good food and an interesting
-                                    history - oh, and world class surf - lots of
-                                    world class surf.
-                                </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                    </Card>
-                </Link>
-                <Link underline="none" href="/allCountries/france">
-                    <Card className={classes.root}>
-                        <CardActionArea>
-                            <CardMedia
-                                className={classes.media}
-                                image="/Surfing-in-France.jpg"
-                                title="Surfing in France"
-                            />
-                            <CardContent>
-                                <Typography variant="h5">France</Typography>
-                                <Typography variant="body2" component="p">
-                                    Whether you're looking for reelling ten foot
-                                    points, endless mellow six foot walls or the
-                                    perfect wave to learn on, Morocco hast it
-                                    all.
-                                </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                    </Card>
-                </Link>
-                <Link underline="none" href="/allCountries/england">
-                    <Card className={classes.root}>
-                        <CardActionArea>
-                            <CardMedia
-                                className={classes.media}
-                                image="/Surfing-in-England.jpg"
-                                title="Surfing in France"
-                            />
-                            <CardContent>
-                                <Typography variant="h5">England</Typography>
-                                <Typography variant="body2" component="p">
-                                    Whether you're looking for reelling ten foot
-                                    points, endless mellow six foot walls or the
-                                    perfect wave to learn on, Morocco hast it
-                                    all.
-                                </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                    </Card>
-                </Link>
-                <Link underline="none" href="/allCountries/france">
-                    <Card className={classes.root}>
-                        <CardActionArea>
-                            <CardMedia
-                                className={classes.media}
-                                image="/Surfing-in-nl.jpg"
-                                title="Surfing in the Netherlands"
-                            />
-                            <CardContent>
-                                <Typography variant="h5">
-                                    The Netherlands
-                                </Typography>
-                                <Typography variant="body2" component="p">
-                                    Whether you're looking for reelling ten foot
-                                    points, endless mellow six foot walls or the
-                                    perfect wave to learn on, Morocco hast it
-                                    all.
-                                </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                    </Card>
-                </Link>
             </Grid>
         </Container>
     );
