@@ -3,7 +3,7 @@ const app = express();
 const compression = require("compression");
 const surfspots = require("./surfspots.json");
 const countries = require("./countries.json");
-const { allCountries, selectedCountry } = require("./db.js");
+const { allCountries, selectedCountry, allSurfspots } = require("./db.js");
 const { response } = require("express");
 
 // My middleware
@@ -53,6 +53,12 @@ app.get("/server/allCountries/:country", (req, res) => {
         .then((result) => {
             console.log("result from countries server route", result.rows);
             res.json(result.rows);
+            allSurfspots().then((result) => {
+                console.log(
+                    "result from allSurfspots serverroute",
+                    result.rows
+                );
+            });
         })
         .catch((err) => {
             console.log("response from countries function: ", err);
