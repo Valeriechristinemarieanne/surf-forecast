@@ -52,8 +52,14 @@ app.get("/server/allCountries/:country", (req, res) => {
     selectedCountry(country)
         .then((result) => {
             console.log("result from countries server route", result.rows);
+            console.log(
+                "result from countries server route",
+                result.rows[0].country
+            );
+            const selectedcountry = result.rows[0].country;
+            console.log("just declared const", selectedcountry);
             res.json(result.rows);
-            allSurfspots().then((result) => {
+            allSurfspots(selectedcountry).then((result) => {
                 console.log(
                     "result from allSurfspots serverroute",
                     result.rows
