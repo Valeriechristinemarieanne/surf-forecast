@@ -74,7 +74,7 @@ export default function Country(props, { id }) {
             .then((response) => {
                 console.log(
                     "whats my result in country component",
-                    response.data[0].countrydisplayname
+                    response.data
                 );
                 setCountry(response.data[0].countrydisplayname);
                 setCountryDescription(response.data[0].countrydescriptionlong);
