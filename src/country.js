@@ -65,6 +65,7 @@ export default function Country(props, { id }) {
     const [countryname, setCountry] = useState("");
     const [countrydescriptionlong, setCountryDescription] = useState("");
     const [countryimg, setCountryImg] = useState("");
+    const [surfspots, setSurfspots] = useState([]);
 
     useEffect(() => {
         console.log("I am in country component before axios");
@@ -79,6 +80,7 @@ export default function Country(props, { id }) {
                 setCountry(response.data[0].countrydisplayname);
                 setCountryDescription(response.data[0].countrydescriptionlong);
                 setCountryImg(response.data[0].countryimg);
+                setSurfspots(response.data);
             })
             .catch((err) => {
                 console.log("error in axios request to get country: ", err);
@@ -121,6 +123,36 @@ export default function Country(props, { id }) {
                 justify="center"
                 alignItems="center"
             >
+                {surfspots.map((surfspot, index) => (
+                    <div className="mappedsurfspots" key={index}>
+                        <Link
+                            underline="none"
+                            href={"/allCountries/" + surfspot.surfspot}
+                        >
+                            <Card className={classes.root}>
+                                <CardActionArea>
+                                    {/*  <CardMedia
+                                        className={classes.media}
+                                        image={surfspot.surfspotimg}
+                                        title="Surfing"
+                                    /> */}
+                                    <CardContent>
+                                        <Typography variant="h5">
+                                            {surfspot.surfspotdisplayname}
+                                        </Typography>
+                                        <Typography
+                                            variant="body2"
+                                            component="p"
+                                        >
+                                            {surfspot.surfspotdisplayname}
+                                        </Typography>
+                                    </CardContent>
+                                </CardActionArea>
+                            </Card>
+                        </Link>
+                    </div>
+                ))}
+
                 <Link underline="none" href="/allCountries/morocco/anchorpoint">
                     <Card className={classes.root}>
                         <CardActionArea>
