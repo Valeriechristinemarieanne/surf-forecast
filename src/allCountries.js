@@ -48,7 +48,7 @@ const useStyles = makeStyles({
 export default function allCountries() {
     const classes = useStyles();
     const [allcountries, setAllCountries] = useState([]);
-    console.log("allcountries:", allcountries);
+
     useEffect(() => {
         console.log("Trying to get data into my component");
         axios

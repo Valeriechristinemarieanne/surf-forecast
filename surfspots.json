@@ -1,11 +1,8 @@
 [
     {
         "name": "anchorpoint",
-        "id": 1,
         "displayname": "Anchor Point",
         "country": "Morocco",
-        "countryImage": "",
-        "countryDescription": "",
         "lat": 30.543675,
         "lng": -9.724311,
         "description": "What makes Anchor Point so renowned is its perfect lines of waves which wrap themselves around the point. The pointbreak itself has a sandy rock bottom, and provides very long rides lasting up to 500 metres on a good day if your thighs can handle it. Combine the beauty of the right hand pointbreak with the gorgeous African weather, and it's not surprising that so many surfers go there, especially during the winter months when northern Europe experiences what feels like a mini ice age.",
@@ -13,11 +10,8 @@
     },
     {
         "displayname": "Imsouane",
-        "id": 2,
         "name": "imsouane",
         "country": "Morocco",
-        "countryImage": "",
-        "countryDescription": "",
         "lat": 30.837627,
         "lng": -9.818808,
         "description": "The best thing about Imsouane is the extraordinary surf conditions. The swell peaks at the point and sweeps into the huge bay, connecting three peaks to form one lengthy, peeling, chilled-out ride in. If you catch the wave through each of the three peaks, you’ll be surfing for at least two minutes, or maybe more. The feeling of catching one of these mellow waves on a sizeable day is second to none!",

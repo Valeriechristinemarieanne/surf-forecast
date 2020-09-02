@@ -9,8 +9,22 @@ if (process.env.DATABASE_URL) {
     db = spicedPg(`postgres:${dbUser}:${dbPass}@localhost:5432/surfforecast`);
 }
 
-//////// GIVE ME ALL THE COUNTRIES \\\\\\\\\\\\\
+//////// Display all countries \\\\\\\\\\\\\
 exports.allCountries = () => {
     console.log("allCountries query running");
-    return db.query(`SELECT * from countries`);
+    return db.query(`SELECT * FROM countries`);
 };
+
+//////// Display all surfspots from selected country \\\\\\\\\\\\\
+exports.allSurfspots = () => {
+    console.log("allSurfspots query running");
+    return db.query(`SELECT * FROM surfspots`);
+};
+
+//////// Display all surfspots from selected country \\\\\\\\\\\\\
+exports.selectedCountry = (country) => {
+    console.log("selectedCountry query running");
+    return db.query(`SELECT * FROM countries WHERE country=$1`, [country]);
+};
+
+/* WHERE country IN (SELECT * FROM surfspots */

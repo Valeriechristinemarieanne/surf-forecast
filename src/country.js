@@ -62,10 +62,9 @@ const useStyles = makeStyles(() => ({
 
 export default function Country(props, { id }) {
     const classes = useStyles();
-    const [displaycountryname, setCountry] = useState("");
-    const [countryImage, setCountryImage] = useState("");
-    const [countryDescription, setCountryDescription] = useState("");
-    const [surfspot, setSurfspot] = useState("");
+    const [countryname, setCountry] = useState("");
+    const [countrydescriptionlong, setCountryDescription] = useState("");
+    const [countryimg, setCountryImg] = useState("");
 
     useEffect(() => {
         console.log("I am in country component before axios");
@@ -73,28 +72,23 @@ export default function Country(props, { id }) {
         axios
             .get(`/server/allCountries/${props.match.params.country}`)
             .then((response) => {
-                setCountry(response.data.displaycountryname);
-                setCountryDescription(response.data.countryDescription);
-                setCountryImage(response.data.countryImage);
-
-                axios
-                    .get(
-                        `/server/allCountries/${props.match.params.country}/${surfspot}`
-                    )
-                    .then((response) => {
-                        console.log("I am trying to get to the surfspot");
-                        console.log("response: ", response.data);
-                        setSurfspot(response.data);
-                    });
+                console.log(
+                    "whats my result in country component",
+                    response.data[0].countrydisplayname
+                );
+                setCountry(response.data[0].countrydisplayname);
+                setCountryDescription(response.data[0].countrydescriptionlong);
+                setCountryImg(response.data[0].countryimg);
             })
             .catch((err) => {
                 console.log("error in axios request to get country: ", err);
             });
     }, []);
+    console.log(countryname);
 
     return (
         <Container disableGutters>
-            <img className="countryimage" src={countryImage} />
+            <img className="countryimage" src={countryimg} />
             <Container className={classes.BreadcrumbsContainer}>
                 <Breadcrumbs aria-label="breadcrumb">
                     <Link underline="none" color="inherit" href="/">
@@ -103,16 +97,14 @@ export default function Country(props, { id }) {
                     <Link underline="none" color="inherit" href="/allCountries">
                         Surfing around the World
                     </Link>
-                    <Typography color="textPrimary">
-                        {displaycountryname}
-                    </Typography>
+                    <Typography color="textPrimary">{countryname}</Typography>
                 </Breadcrumbs>
             </Container>
             <Typography className={classes.h4} gutterBottom variant="h4">
-                Surfing in {displaycountryname}
+                Surfing in {countryname}
             </Typography>
             <Typography className={classes.Subtitle} variant="subtitle1">
-                {countryDescription}
+                {countrydescriptionlong}
             </Typography>
 
             <Container className={classes.DividerContainer}>
@@ -129,37 +121,6 @@ export default function Country(props, { id }) {
                 justify="center"
                 alignItems="center"
             >
-                <Link underline="none" href="/allCountries/morocco/surfspot">
-                    <Card className={classes.root}>
-                        <CardActionArea>
-                            <CardMedia
-                                className={classes.media}
-                                image="/anchorpoint.jpg"
-                                title="Anchorpoint"
-                            />
-                            <CardContent>
-                                <Typography variant="h5">
-                                    {surfspot.name}
-                                </Typography>
-                                <Typography variant="body2" component="p">
-                                    A steep take off. Powerful point break,
-                                    which remains on a good day walk.
-                                </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                    </Card>
-                </Link>
-
-                {[surfspot].map((spot, index) => (
-                    <div className="mappedsurfspots" key={index}>
-                        <img
-                            className="mappedsurfspotsimg"
-                            src={[spot].image}
-                        />
-                        <Typography variant="h5">{spot.name}</Typography>
-                    </div>
-                ))}
-
                 <Link underline="none" href="/allCountries/morocco/anchorpoint">
                     <Card className={classes.root}>
                         <CardActionArea>
