@@ -250,8 +250,8 @@ export default function Surfspot(props) {
                 setDescription(response.data[0].surfspotdescriptionlong);
                 setImage(response.data[0].surfspotimg);
 
-                const lat = response.data.lat;
-                const lng = response.data.lng;
+                const lat = response.data[0].lat;
+                const lng = response.data[0].lng;
                 const params =
                     "waveHeight,airTemperature,waterTemperature,wavePeriod,windSpeed";
                 console.log(lat, lng, params);
