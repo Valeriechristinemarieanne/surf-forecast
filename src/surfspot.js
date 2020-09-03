@@ -160,6 +160,8 @@ export default function Surfspot(props) {
     const [surfspotname, setSurfspot] = useState("");
     const [description, setDescription] = useState("");
     const [image, setImage] = useState("");
+
+    // Display 3 dates ahead
     const today = new Date();
     const date =
         today.getDate() +
@@ -180,6 +182,7 @@ export default function Surfspot(props) {
         "/" +
         today.getFullYear();
 
+    // My Reducer
     const [surfState, dispatchSurfState] = useReducer(reducer, {
         dayOne: {
             morningWaveHeight: "",
@@ -235,17 +238,11 @@ export default function Surfspot(props) {
     });
 
     useEffect(() => {
-        console.log("props.match.params: ", props.match.params.surfspot);
-        console.log("surfState", surfState);
         axios
             .get(
                 `/server/allCountries/${props.match.params.country}/${props.match.params.surfspot}`
             )
             .then((response) => {
-                console.log(
-                    "response.data",
-                    response.data[0].surfspotdisplayname
-                );
                 setSurfspot(response.data[0].surfspotdisplayname);
                 setDescription(response.data[0].surfspotdescriptionlong);
                 setImage(response.data[0].surfspotimg);
@@ -254,7 +251,7 @@ export default function Surfspot(props) {
                 const lng = response.data[0].lng;
                 const params =
                     "waveHeight,airTemperature,waterTemperature,wavePeriod,windSpeed";
-                console.log(lat, lng, params);
+
                 fetch(
                     `https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=${params}`,
                     {
@@ -265,19 +262,6 @@ export default function Surfspot(props) {
                 )
                     .then((resp) => resp.json())
                     .then((jsonData) => {
-                        console.log(
-                            "jsonData from storm glass api: ",
-                            jsonData.hours
-                        );
-                        console.log(
-                            "Airtemperature at 6:00 am from noaa source: ",
-                            jsonData.hours[6].airTemperature.noaa
-                        );
-                        console.log(
-                            "wave height at 6:00 am from noaa source: ",
-                            jsonData.hours[6].waveHeight.noaa
-                        );
-
                         dispatchSurfState({
                             type: "SURF_UPDATE",
                             data: jsonData,
@@ -285,7 +269,7 @@ export default function Surfspot(props) {
                     });
             })
             .catch((err) => {
-                console.log("error: ", err);
+                console.log("err in axios weather data req: ", err);
             });
     }, []);
 

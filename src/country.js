@@ -68,25 +68,18 @@ export default function Country(props, { id }) {
     const [surfspots, setSurfspots] = useState([]);
 
     useEffect(() => {
-        console.log("I am in country component before axios");
-
         axios
             .get(`/server/allCountries/${props.match.params.country}`)
             .then((response) => {
-                console.log(
-                    "whats my result in country component",
-                    response.data
-                );
                 setCountry(response.data[0].countrydisplayname);
                 setCountryDescription(response.data[0].countrydescriptionlong);
                 setCountryImg(response.data[0].countryimg);
                 setSurfspots(response.data);
             })
             .catch((err) => {
-                console.log("error in axios request to get country: ", err);
+                console.log("err in axios request to get country: ", err);
             });
     }, []);
-    console.log(countryname);
 
     return (
         <Container disableGutters>

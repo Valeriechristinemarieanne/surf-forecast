@@ -11,29 +11,24 @@ if (process.env.DATABASE_URL) {
 
 //////// Display all countries \\\\\\\\\\\\\
 exports.allCountries = () => {
-    console.log("allCountries query running");
     return db.query(`SELECT * FROM countries`);
 };
 
 //////// Display all surfspots from selected country \\\\\\\\\\\\\
+exports.selectedCountry = (country) => {
+    return db.query(`SELECT * FROM countries WHERE country=$1`, [country]);
+};
+
+//////// Display all surfspots from selected country \\\\\\\\\\\\\
 exports.allSurfspots = (country) => {
-    console.log("country: ", country);
-    console.log("allSurfspots query running");
     return db.query(
         `SELECT * FROM surfspots INNER JOIN countries ON surfspots.country=countries.country WHERE countries.country=$1`,
         [country]
     );
 };
 
-//////// Display all surfspots from selected country \\\\\\\\\\\\\
-exports.selectedCountry = (country) => {
-    console.log("selectedCountry query running");
-    return db.query(`SELECT * FROM countries WHERE country=$1`, [country]);
-};
-
-//////// Display all surfspots from selected country \\\\\\\\\\\\\
+//////// Display selected surfspot \\\\\\\\\\\\\
 exports.selectedSurfspot = (surfspot) => {
-    console.log("selectedSurfspot query running");
     return db.query(`SELECT * FROM surfspots WHERE surfspotname=$1`, [
         surfspot,
     ]);

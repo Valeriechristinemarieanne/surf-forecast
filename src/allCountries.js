@@ -48,21 +48,14 @@ const useStyles = makeStyles({
 export default function allCountries() {
     const classes = useStyles();
     const [allcountries, setAllCountries] = useState([]);
-    console.log("allcountries:", allcountries);
     useEffect(() => {
-        console.log("Trying to get data into my component");
         axios
             .get(`server/allCountries`)
             .then((response) => {
-                console.log(
-                    "Still trying to get data, whats my response:",
-                    response.data[0].country
-                );
                 setAllCountries(response.data);
-                /* console.log("allcountries:", allcountries); */
             })
             .catch((err) => {
-                console.log("error in getting allCountries data: ", err);
+                console.log("err in getting allCountries data: ", err);
             });
     }, []);
 
