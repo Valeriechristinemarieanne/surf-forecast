@@ -84,15 +84,17 @@ export default function allCountries() {
                 Surfing around the World
             </Typography>
             <Typography variant="subtitle1" className={classes.Subtitle}>
-                Typically when we read about the world’s best surfing spots we
-                find ourselves being directed towards the West Coast of the
-                United States of America, to Australia, or to Bali on Java in
-                Indonesia, but the reality is that there are many amazing spots
-                for surfing in Europe. The weather in Europe is unpredictable at
-                the best of times but if you get a good sunny day you could
-                easily be in Bali or on the Sunshine Coast of Australia, for the
-                waters are oh so very blue, clear and, believe it or not, even
-                warm too!
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. In
+                massa tempor nec feugiat nisl pretium fusce id velit. Lobortis
+                mattis aliquam faucibus purus in massa tempor nec. Lectus quam
+                id leo in vitae turpis massa sed. Consectetur adipiscing elit ut
+                aliquam purus sit amet luctus venenatis. Ut tellus elementum
+                sagittis vitae et leo duis ut. Vitae congue eu consequat ac
+                felis donec et. Cursus eget nunc scelerisque viverra mauris in
+                aliquam. Nibh tellus molestie nunc non blandit. Ullamcorper sit
+                amet risus nullam eget felis eget nunc. In aliquam sem fringilla
+                ut morbi tincidunt augue interdum.
             </Typography>
             <Container className={classes.DividerContainer}>
                 <Divider variant="middle" />
