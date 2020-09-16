@@ -160,6 +160,7 @@ export default function Surfspot(props) {
     const [surfspotname, setSurfspot] = useState("");
     const [description, setDescription] = useState("");
     const [image, setImage] = useState("");
+    const [country, setCountry] = useState("");
 
     // Display 3 dates ahead
     const today = new Date();
@@ -246,6 +247,8 @@ export default function Surfspot(props) {
                 setSurfspot(response.data[0].surfspotdisplayname);
                 setDescription(response.data[0].surfspotdescriptionlong);
                 setImage(response.data[0].surfspotimg);
+                setCountry(response.data[0].country);
+                console.log("response.data: ", response.data[0].country);
 
                 const lat = response.data[0].lat;
                 const lng = response.data[0].lng;
@@ -284,8 +287,8 @@ export default function Surfspot(props) {
                     <Link color="inherit" href="/allCountries">
                         Surfing around the world
                     </Link>
-                    <Link color="inherit" href="/allCountries/morocco">
-                        Surfing in Morocco
+                    <Link color="inherit" href={`/allCountries/${country}`}>
+                        Surfing in {country}
                     </Link>
                     <Typography color="textPrimary">{surfspotname}</Typography>
                 </Breadcrumbs>
