@@ -248,7 +248,6 @@ export default function Surfspot(props) {
                 setDescription(response.data[0].surfspotdescriptionlong);
                 setImage(response.data[0].surfspotimg);
                 setCountry(response.data[0].country);
-                console.log("response.data: ", response.data[0].country);
 
                 const lat = response.data[0].lat;
                 const lng = response.data[0].lng;
